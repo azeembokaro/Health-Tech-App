@@ -1,0 +1,38 @@
+
+body {
+  font-family: 'Poppins', sans-serif!important;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.form *{
+  width: unset;
+}
+
+/* Vertical scrollbar width */
+::-webkit-scrollbar {
+  width: 8px; /* Works for vertical scrollbar */
+}
+
+/* Horizontal scrollbar height */
+::-webkit-scrollbar:vertical {
+  height: 5px; /* Works for horizontal scrollbar */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: lightseagreen; 
+  border-radius: 15px;
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #21695c; /* Color of the scrollbar */
+  border-radius: 10px;
+}
+
+/* Hover effect on scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background: crimson;
+}

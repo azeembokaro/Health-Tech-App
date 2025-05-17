@@ -1,0 +1,44 @@
+.conversation{
+max-height: 100vh;
+max-width: 100%;
+}
+
+.conversation .upper-conversation{
+height: 65vh;
+overflow-y: auto;
+}
+
+.conversation .lower-conversation{
+    position: fixed;
+    height: 35vh;
+    width: 100%;
+}
+
+.dialog{
+    width: 70%;
+    margin: auto;
+}
+
+@media(max-width:571px){
+   .dialog{
+    width: 80%;
+    margin: auto;
+} 
+.conversation .lower-conversation{
+   
+    height: 20vh;
+    
+}
+.conversation .upper-conversation{
+height: 80vh;
+overflow-y: auto;
+}
+
+}
+
+.dialog textarea{
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    border: 2px solid black;
+}

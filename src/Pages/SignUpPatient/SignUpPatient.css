@@ -1,0 +1,108 @@
+/* Container Styling */
+
+.signupheading{
+  color: #000;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+.outerForm {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* min-height: 80vh; */
+  /* box-shadow: 0px 0px 10px 0px rgba(99, 99, 99); */
+  border-radius: 20px;
+  position: relative;
+}
+
+
+
+.form {
+  /* max-width: 100%; */
+  
+  padding: 30px 90px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(99. 99, 99);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: white;
+  overflow-y: auto; /* Enables vertical scrolling when content overflows */
+}
+
+
+/* Label Styling */
+.form label {
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Input Field Styling */
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="date"]
+ {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 12px;
+  border:2px solid #ddd6d6;
+    
+    height: 48px;
+ }
+
+/* Input Field Focus Effect */
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form input[type="email"]:focus,
+.form input[type="date"]:focus
+ {
+  outline: none;
+  /* border-color: #007bff;
+  box-shadow: inset 0 2px 8px rgba(0, 123, 255, 0.3); */
+}
+
+/* Button Styling */
+.form button {
+  padding: 12px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Spacing and Alignment */
+.form * {
+  display: block;
+  /* width: 100%; */
+  margin-bottom: 10px;
+}
+
+/* Close Icon Styling */
+.closeIcon {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  font-size: 42px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.75s ease;
+}
+
+.closeIcon:hover {
+  color: #ff0000;
+}
+
+input[type="date"] {
+  pointer-events: auto;
+  cursor: pointer;
+}
