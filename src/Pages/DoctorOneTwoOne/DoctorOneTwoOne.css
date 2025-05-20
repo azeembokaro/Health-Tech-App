@@ -11,7 +11,7 @@ overflow-y: auto;
 .conversation .lower-conversation{
     position: fixed;
     height: 35vh;
-    
+    width: 100%;
 }
 
 .dialog{
