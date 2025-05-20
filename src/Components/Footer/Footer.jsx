@@ -3,10 +3,14 @@ import './Footer.css'
 
 function Footer() {
   return (
-    <div>
-      <p className="text-center py-5 footer">
-        @2024 All Rights Reserved
-      </p>
+    <div className="container-fluid">
+     <div class="row">
+      <div class="col-12">
+        <p className='footer text-center py-sm-5 py-3'>
+          @All Rights Reserved
+        </p>
+      </div>
+     </div>
     </div>
   )
 }

@@ -35,24 +35,27 @@ function SignUpBuisness({ buisnesssignup, onCloseSignup }) {
   return (
     <div className={`container my-5 ${styles.signupInfo}`}>
       <div className="row">
-        <div className={`col-8 offset-2 my-sm-5 my-3 ${styles.outerForm}`}>
+        <div className={`col-sm-8 offset-sm-2 my-sm-5 my-3 col-10 offset-1  ${styles.outerForm}`}>
           <form onSubmit={handleSubmit} className={styles.form}>
             <h2 className="text-center">SignUp For Business</h2>
 
             <label htmlFor="buisness">
               Choose Your Business, Want To Join As
             </label>
+
             <select
-              name="buisness"
-              id="buisness"
-              value={buisness}
-              onChange={(e) => setBuisness(e.target.value)}
-            >
-              <option value="Doctor">Doctor</option>
-              <option value="Clinic/Hospital">Clinic/Hospital</option>
-              <option value="Pharmacy">Pharmacy</option>
-              <option value="DiagnosticLab">DiagnosticLab</option>
-            </select>
+  className="form-select w-100" // 👈 Add this
+  name="buisness"
+  id="buisness"
+  value={buisness}
+  onChange={(e) => setBuisness(e.target.value)}
+>
+  <option value="Doctor">Doctor</option>
+  <option value="Clinic/Hospital">Clinic/Hospital</option>
+  <option value="Pharmacy">Pharmacy</option>
+  <option value="DiagnosticLab">DiagnosticLab</option>
+</select>
+
 
             <button type="submit" className="btn btn-primary">
               Submit

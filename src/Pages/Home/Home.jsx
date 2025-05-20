@@ -26,13 +26,13 @@ function Home() {
       <Header />
 
       <div className="container my-sm-5 my-3">
-        <div className="row">
-          <div className="col-sm-6 col-10">
-            <h2 className="text-center py-sm-5 py-3">
+        <div className="row align-items-center">
+          <div className="col-sm-6 col-10 offset-sm-0 offset-1 text-center">
+            <h2 className="py-sm-5 py-3">
               Welcome to AI powered health tech revolution
             </h2>
             <p className="text-center">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde nam incidunt, reiciendis quia veniam perferendis maxime hic natus. Minus, vero!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odio eligendi incidunt quae molestias quos minus. Possimus quo amet vel sit maiores. Quaerat culpa accusamus exercitationem quo, rem enim corporis doloribus iure esse, earum iusto numquam magni magnam ex ipsa, autem pariatur optio incidunt! Saepe praesentium fugit eius voluptatum illum?
             </p>
 
             <div className="sign-up py-sm-5 py-3 d-sm-flex justify-content-sm-between">
@@ -52,7 +52,7 @@ function Home() {
             </div>
           </div>
 
-          <div className="col-sm-6 col-10 text-center">
+          <div className="col-sm-6 col-10 offset-sm-0 offset-1 text-center">
             <div className="hero-img-div">
               <img src={HomeImg} alt="home-img" className="home-img" />
             </div>

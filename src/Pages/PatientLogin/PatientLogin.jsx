@@ -89,7 +89,7 @@ function PatientLogin() {
                 <RiLockPasswordFill className="icon" />
               </div>
 
-              <button type="submit" className="btn btn-primary w-25 mx-auto">
+              <button type="submit" className="btn btn-primary w-sm-25 w-75 mx-auto">
                 Submit
               </button>
             </form>

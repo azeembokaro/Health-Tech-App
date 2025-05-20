@@ -1,6 +1,14 @@
 .home-img{
     width: 300px;
-    height: 300px;
+    height: 250px;
+    object-fit: contain;
+}
+
+@media(max-width:571px){
+   .home-img{
+      width: 200px;
+      height: 200px;
+   }
 }
 h2{
     color: #21695c;
@@ -43,14 +51,20 @@ background: #21695c;
 
  .sign-up button{
    text-align: center;
-   border-radius: 12px;
-   padding: 0.50rem 0.25rem;
+   /* border-radius: 12px; */
+   padding: 0.45rem 0.15rem;
    text-decoration: none;
    background-color: #21695c;
     border-width: 0;
     border-color: #21695c;
     color:white;
     font-weight: 500;
+ }
+
+ @media(max-width:571px){
+.sign-up button{
+   font-size: 14px;
+}
  }
 
  .sign-up button:hover{

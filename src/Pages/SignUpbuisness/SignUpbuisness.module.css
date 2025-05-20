@@ -117,4 +117,12 @@
     pointer-events: auto;
     cursor: pointer;
   }
+
+  /* Inside SignUpbuisness.module.css */
+select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
   

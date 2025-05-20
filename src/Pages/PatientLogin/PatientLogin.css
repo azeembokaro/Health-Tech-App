@@ -41,6 +41,11 @@
     overflow-y: auto; /* Enables vertical scrolling when content overflows */
   }
   
+  @media(max-width:571px){
+    .form{
+      padding: 10px;
+    }
+  }
   
   /* Label Styling */
   .form label {

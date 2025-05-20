@@ -142,7 +142,7 @@ function SignUp() {
               required
             />
 
-            <button type="submit" className="btn btn-primary w-50 mx-auto">
+            <button type="submit" className="btn btn-primary w-sm-50 w-75 mx-auto">
               Submit
             </button>
           </form>

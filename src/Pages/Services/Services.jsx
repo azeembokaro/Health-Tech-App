@@ -24,6 +24,7 @@ function Services() {
               <img src={DoctorCard} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">One To One With Doctor</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, iure!</p>
                  <Link to="/DoctorOneTwoOne" className="btn btn-primary">
           Avail Service
         </Link>
@@ -36,6 +37,7 @@ function Services() {
               <img src={ConsultExpert} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Consult With Expert</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, odio!</p>
                 <a href="#" className="btn btn-primary">Avail Service</a>
               </div>
             </div>
@@ -45,6 +47,7 @@ function Services() {
               <img src={MedicalInfo} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Medical Info Sharing</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, soluta.</p>
                 <a href="#" className="btn btn-primary">Avail Service</a>
               </div>
             </div>
@@ -57,6 +60,7 @@ function Services() {
               <img src={MedicalRecord} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Medical Records</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quaerat!</p>
                 <a href="" className="btn btn-primary w-50 mx-auto">Avail Service</a>
               </div>
             </div>
@@ -67,6 +71,7 @@ function Services() {
               <img src={HealthcareService} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Find Healthcare Service</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, cupiditate.</p>
                 <a href="#" className="btn btn-primary">Avail Service</a>
               </div>
             </div>
