@@ -1,102 +1,67 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify"; // Import Toastify
-import "react-toastify/dist/ReactToastify.css"; // Import Toastify styles
-import "../PatientLogin/PatientLogin.css"; // Import ordinary CSS file
-import { RiLockPasswordFill } from "react-icons/ri";
-import { FaUserAlt } from "react-icons/fa";
+import "./BuisnessLogin.css";
+import axios from "axios";
 
 function BuisnessLogin() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [buisness, setBuisness] = useState("Doctor"); // ✅ Correct state name
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts",
-        { username, password }
-      );
-      console.log("Response:", response.data);
+      await axios.post("https://jsonplaceholder.typicode.com/posts", {
+        buisness,
+      });
 
-      // ✅ Success Toast Notification
-      toast.success(
-        <span>Logged in Successfully</span>,
-        {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "light",
-        }
-      );
-
-      // Redirect after a short delay
-      setTimeout(() => {
-        navigate("/services");
-      }, 2500);
-
-      // Clear input fields
-      setUsername("");
-      setPassword("");
+      // ✅ Redirect based on selected business
+      if (buisness === "Doctor") {
+        navigate("../Login/DoctorLogin");
+      } else if (buisness === "Pharmacy") {
+        navigate("../Login/PharmacyLogin");
+      } else if (buisness === "Clinic/Hospital") {
+        navigate("../Login/ClinicLogin");
+      } else if (buisness === "DiagnosticLab") {
+        navigate("../Login/LabLogin");
+      }
     } catch (error) {
-      console.error("Error in Login Form:", error);
-      alert("Error in Login Page");
+      console.error("Error:", error);
+      alert("Error submitting form");
     }
   };
 
   return (
-    <>
-      <ToastContainer /> {/* Toast Container for notifications */}
-      <div className="loginInfo">
-        <div className="row">
-          <div className="col-sm-6 offset-sm-3 col-10 offset-1 my-sm-5 my-3 outerForm">
-            <form onSubmit={handleSubmit} className="form">
-              <h2>Login For Buiness</h2>
+    <div className="container my-5 signupInfo">
+      <div className="row">
+        <div className="col-sm-8 offset-sm-2 my-sm-5 my-3 col-10 offset-1 outerForm">
+          <form onSubmit={handleSubmit} className="form"> {/* ✅ Removed styles.form */}
+            <h2 className="text-center">Logged In For Business</h2>
 
-              {/* Username Input */}
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  name="user"
-                  id="user"
-                  value={username}
-                  autoComplete="off"
-                  placeholder="Enter Username"
-                  required
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <FaUserAlt className="icon" />
-              </div>
+            <label htmlFor="buisness">
+              Select The Profile to LogI
+            </label>
 
-              {/* Password Input */}
-              <div className="inputGroup">
-                <input
-                  type="password"
-                  name="pass"
-                  id="pass"
-                  value={password}
-                  autoComplete="off"
-                  placeholder="Enter Password"
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <RiLockPasswordFill className="icon" />
-              </div>
+            <select
+              className="form-select w-100"
+              name="buisness"
+              id="buisness"
+              value={buisness}
+              onChange={(e) => setBuisness(e.target.value)}
+            >
+              <option value="Doctor">Doctor</option>
+              <option value="Clinic/Hospital">Clinic/Hospital</option>
+              <option value="Pharmacy">Pharmacy</option>
+              <option value="DiagnosticLab">DiagnosticLab</option>
+            </select>
 
-              <button type="submit" className="btn btn-primary w-sm-25 w-75 mx-auto">
-                Submit
-              </button>
-            </form>
-          </div>
+            <button type="submit" className="btn btn-primary mt-3">
+              Submit
+            </button>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

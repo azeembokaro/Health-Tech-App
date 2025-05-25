@@ -15,12 +15,21 @@ import SignUpbuisness from './Pages/SignUpbuisness/SignUpbuisness'
 
 import SignUpRoutes from "./routes/SignUpRoutes";
 
+import LoginRoutes from './routes/LoginRoutes'
+
 import DoctorOneTwoOne from './Pages/DoctorOneTwoOne/DoctorOneTwoOne'
+
+import DoctorsProfile from './Pages/DoctorsProfile/DoctorsProfile'
+
+import { PatientProvider } from './PatientContext';
 
 
 function App() {
   return (
+
+    
     <div>
+      <PatientProvider>
 <Router>
       {/* <Header /> */}
       <main>
@@ -44,6 +53,13 @@ function App() {
 
           <Route path="/signup/*" element={<SignUpRoutes />} />
 
+           <Route path="/login/*" element={<LoginRoutes />} />
+
+           
+
+           <Route path="/doctors_profile/*" element={<DoctorsProfile />} />
+
+
            <Route path="/doctoronetwoone" element={<DoctorOneTwoOne/>} />
 
          
@@ -52,6 +68,8 @@ function App() {
       </main>
      
     </Router>
+      </PatientProvider>
+
       
     </div>
   )

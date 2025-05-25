@@ -1,14 +1,12 @@
+// src/Pages/PatientLogin/PatientLogin.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify"; // Import Toastify
-import "react-toastify/dist/ReactToastify.css"; // Import Toastify styles
-import "./PatientLogin.css"; // Import ordinary CSS file
-import { RiLockPasswordFill } from "react-icons/ri";
-import { FaUserAlt } from "react-icons/fa";
+import { usePatient } from "../../PatientContext";
 
 function PatientLogin() {
-  const [username, setUsername] = useState("");
+  const { setPatientId } = usePatient(); // ✅ Use context setter
+  const [patient_id, setPatient_id] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -16,87 +14,40 @@ function PatientLogin() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://jsonplaceholder.typicode.com/posts",
-        { username, password }
-      );
-      console.log("Response:", response.data);
+      const response = await axios.post("http://localhost:8080/api/patientsignin", {
+        patient_id,
+        password,
+      });
 
-      // ✅ Success Toast Notification
-      toast.success(
-        <span>Logged in Successfully</span>,
-        {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "light",
-        }
-      );
+      // Save patient ID to context
+      setPatientId(response.data.patient_id);
 
-      // Redirect after a short delay
-      setTimeout(() => {
-        navigate("/services");
-      }, 2500);
-
-      // Clear input fields
-      setUsername("");
-      setPassword("");
+      // Redirect to services page
+      navigate("/services");
     } catch (error) {
-      console.error("Error in Login Form:", error);
-      alert("Error in Login Page");
+      alert("Login failed. Please try again.");
     }
   };
 
   return (
-    <>
-      <ToastContainer /> {/* Toast Container for notifications */}
-      <div className="loginInfo">
-        <div className="row">
-          <div className="col-sm-6 offset-sm-3 col-10 offset-1 my-sm-5 my-3 outerForm">
-            <form onSubmit={handleSubmit} className="form">
-              <h2>Patient Login</h2>
-
-              {/* Username Input */}
-              <div className="inputGroup">
-                <input
-                  type="text"
-                  name="user"
-                  id="user"
-                  value={username}
-                  autoComplete="off"
-                  placeholder="Enter Username"
-                  required
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <FaUserAlt className="icon" />
-              </div>
-
-              {/* Password Input */}
-              <div className="inputGroup">
-                <input
-                  type="password"
-                  name="pass"
-                  id="pass"
-                  value={password}
-                  autoComplete="off"
-                  placeholder="Enter Password"
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <RiLockPasswordFill className="icon" />
-              </div>
-
-              <button type="submit" className="btn btn-primary w-sm-25 w-75 mx-auto">
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </>
+    <form onSubmit={handleSubmit}>
+      <h2>Patient Login</h2>
+      <input
+        type="text"
+        placeholder="Patient ID"
+        value={patient_id}
+        onChange={(e) => setPatient_id(e.target.value)}
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      <button type="submit">Login</button>
+    </form>
   );
 }
 

@@ -10,11 +10,22 @@ import DoctorOneTwoOne from '../DoctorOneTwoOne/DoctorOneTwoOne';
 import './Services.css'
 import '../Home/Home.css'
 import { Link } from 'react-router-dom';
+
+import { usePatient } from "../../PatientContext";
+
+
 function Services() {
+
+   const { patient_id } = usePatient(); // ✅ Get patient_id from context
   return (
     <div>
       <Header/>
-      
+       <h1>Welcome to Services Page</h1>
+      {patient_id ? (
+        <h2>Hello, Patient ID: {patient_id}</h2>
+      ) : (
+        <h2>No patient logged in.</h2>
+      )}
        
       <div className="container services">
         <div className="row">

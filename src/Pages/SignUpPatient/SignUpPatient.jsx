@@ -1,41 +1,50 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SignUpPatient.css"; // Replaced CSS module with external CSS file
+import "./SignUpPatient.css";
 
 function SignUp() {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [pmail, setPmail] = useState("");
-  const [pno, setPno] = useState("");
-  const [pgender, setPgender] = useState("Male");
-  const [pdate, setPdate] = useState("");
-  const [pass,setpass] = useState("");
-  const [cpass,setcpass]=useState("")
+  const [form, setForm] = useState({
+    fname: "",
+    lname: "",
+    email_id: "",
+    mobileNo: "",
+    gender: "Male",
+    dob: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
     try {
-      const response = await axios.post("http://localhost:8090/api/patients/register", {
-        fname,
-        lname,
-        pmail,
-        pno,
-        pgender,
-        pdate,
-        pass,
-        cpass
-      });
+      const response = await axios.post("http://localhost:8080/api/patientsignup", form);
       console.log("Response:", response.data);
       alert("SignUp submitted successfully");
 
-      // Clear inputs
-      setFname("");
-      setLname("");
-      setPmail("");
-      setPno("");
-      setPgender("Male");
-      setPdate("");
+      // Reset form
+      setForm({
+        fname: "",
+        lname: "",
+        email_id: "",
+        mobileNo: "",
+        gender: "Male",
+        dob: "",
+        password: "",
+        confirmPassword: ""
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Error submitting form");
@@ -54,10 +63,8 @@ function SignUp() {
               type="text"
               name="fname"
               id="fname"
-              value={fname}
-              autoComplete="off"
-              placeholder="Enter First Name"
-              onChange={(e) => setFname(e.target.value)}
+              value={form.fname}
+              onChange={handleChange}
               required
             />
 
@@ -66,79 +73,70 @@ function SignUp() {
               type="text"
               name="lname"
               id="lname"
-              value={lname}
-              autoComplete="off"
-              placeholder="Enter Last Name"
-              onChange={(e) => setLname(e.target.value)}
+              value={form.lname}
+              onChange={handleChange}
               required
             />
 
-            <label htmlFor="pmail">Email</label>
+            <label htmlFor="email_id">Email</label>
             <input
               type="email"
-              name="pmail"
-              id="pmail"
-              value={pmail}
-              autoComplete="off"
-              placeholder="Enter Email"
-              onChange={(e) => setPmail(e.target.value)}
+              name="email_id"
+              id="email_id"
+              value={form.email_id}
+              onChange={handleChange}
               required
             />
 
-            <label htmlFor="pnumber">Mobile No</label>
+            <label htmlFor="mobileNo">Mobile No</label>
             <input
-              type="number"
-              name="pnumber"
-              id="pnumber"
-              value={pno}
-              autoComplete="off"
-              placeholder="Enter Mobile No"
-              onChange={(e) => setPno(e.target.value)}
+              type="text"
+              name="mobileNo"
+              id="mobileNo"
+              value={form.mobileNo}
+              onChange={handleChange}
               required
             />
 
-            <label htmlFor="pgender">Gender</label>
+            <label htmlFor="gender">Gender</label>
             <select
-              name="pgender"
-              id="pgender"
-              value={pgender}
-              onChange={(e) => setPgender(e.target.value)}
+              name="gender"
+              id="gender"
+              value={form.gender}
+              onChange={handleChange}
               required
             >
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
 
-            <label htmlFor="pdate">Date of Birth</label>
+            <label htmlFor="dob">Date of Birth</label>
             <input
               type="date"
-              id="pdate"
-              name="pdate"
-              value={pdate}
-              onChange={(e) => setPdate(e.target.value)}
-              onKeyDown={(e) => e.key !== "Tab" && e.preventDefault()}
+              name="dob"
+              id="dob"
+              value={form.dob}
+              onChange={handleChange}
               required
             />
 
-<label htmlFor="pdate">Enter Password</label>
+            <label htmlFor="password">Enter Password</label>
             <input
               type="password"
-              id="pass"
-              name="pass"
-              value={pass}
-              onChange={(e) => setpass(e.target.value)}
-             
+              name="password"
+              id="password"
+              value={form.password}
+              onChange={handleChange}
               required
             />
 
-<label htmlFor="pdate">Confirm Password</label>
+            <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               type="password"
-              id="cpass"
-              name="cpass"
-              value={cpass}
-              onChange={(e) => setcpass(e.target.value)}
-             
+              name="confirmPassword"
+              id="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleChange}
               required
             />
 
