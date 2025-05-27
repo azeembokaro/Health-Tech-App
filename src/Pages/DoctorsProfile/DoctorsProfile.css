@@ -1,6 +1,12 @@
-.doctors-profile{
-    width: 60%;
+#page-content-wrapper{
+    width: 70%;
     margin: auto;
+}
+
+
+.doctors-profile{
+    width: 90%!important;
+    margin: auto!important;
     border-radius: 20px;
     border: 1px solid blue;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
