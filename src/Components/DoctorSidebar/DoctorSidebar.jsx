@@ -1,26 +1,53 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import './DoctorSidebar.css';
 
 const DoctorSidebar = () => {
   return (
-    <div className="list-group">
-
-      <Link to="/doctors_profile/my_profile" className="list-group-item list-group-item-action active my-3">
+    <div className="list-group ms-sm-5 ms-2">
+      <NavLink
+        to="/doctors_profile/my_profile"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
         My Profile
-      </Link>
+      </NavLink>
 
-      <Link to="/doctors_profile/my_queue" className="list-group-item list-group-item-action my-3">
+      <NavLink
+        to="/doctors_profile/my_queue"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
         My Waiting Queue
-      </Link>
+      </NavLink>
 
-      <Link to="/doctors_profile/my_cases" className="list-group-item list-group-item-action my-3">
+      <NavLink
+        to="/doctors_profile/my_cases"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
         Cases Handled
-      </Link>
+      </NavLink>
 
-      <Link to="/doctors_profile/my_duty" className="list-group-item list-group-item-action my-3">
+      <NavLink
+        to="/doctors_profile/my_duty"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
         My Duty
-      </Link>
-
+      </NavLink>
     </div>
   );
 };

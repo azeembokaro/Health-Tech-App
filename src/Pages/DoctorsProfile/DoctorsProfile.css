@@ -7,8 +7,43 @@
 .doctors-profile{
     width: 90%!important;
     margin: auto!important;
-    border-radius: 20px;
-    border: 1px solid blue;
+    border-radius: 30px;
+    /* border: 1px solid blue; */
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0; /* Optional: removes default left padding */
+}
+
+.profile_box{
+    background: #004de6;
+    color: #ffffff;
+}
+
+.profile_box h2{
+    text-align: center;
+}
+
+.profile_box .patient_view{
+    background: #f0cf22;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 22.478px;
+    border: transparent;
+    color: #1a1a1a ;
+    padding: 0.5rem 1.5rem ;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: linear .3s;
+}
+
+
+.profile_box .patient_view:hover{
+    background: #2E7EFF;
+    color: white;
+    border: transparent;
+    
 }

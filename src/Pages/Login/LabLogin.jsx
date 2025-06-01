@@ -53,26 +53,27 @@ function LabLogin() {
   return (
     <>
       <ToastContainer />
-       
-        <div className="loginInfo">
-          <div className="row">
-            <div className="col-8 offset-2 my-sm-5 my-3 outerForm">
-              <form onSubmit={handleSubmit} className="form">
-                <h2>Lab Login</h2>
 
-                <label htmlFor="user">Lab's Id</label>
+
+      <div class="container mt-sm-5 mt-3">
+        <div class="row">
+          <div class="col-sm-6 col-8 offset-sm-3 offset-2">
+ <form onSubmit={handleSubmit} className="login p-sm-5 p-3">
+                <h3 className="text-center">Lab Login</h3>
+
+                <label htmlFor="user" className="mb-3">Lab's Id</label>
                 <input
                   type="text"
                   name="user"
                   id="user"
                   value={doctor_id}
                   autoComplete="off"
-                  placeholder="Enter Doctor's Id"
+                  placeholder="Enter Lab's Id"
                   required
                   onChange={(e) => setDoctorid(e.target.value)}
                 />
 
-                <label htmlFor="pass">Password</label>
+                <label htmlFor="pass" className="mb-3">Password</label>
                 <input
                   type="password"
                   name="pass"
@@ -84,13 +85,15 @@ function LabLogin() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <button type="submit" className="btn btn-primary">
-                  Login
-                </button>
+               
+                <div className="my-sm-4 my-2 text-center">
+ <button type="submit" className="btn btn-lg btn-primary text-center w-75">Login</button>
+      </div>
               </form>
-            </div>
           </div>
         </div>
+      </div>
+       
       
     </>
   );
