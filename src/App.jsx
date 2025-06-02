@@ -23,6 +23,8 @@ import DoctorsProfile from './Pages/DoctorsProfile/DoctorsProfile'
 
 import { PatientProvider } from './PatientContext';
 
+import { DoctorProvider } from './DoctorContext';
+
 
 function App() {
   return (
@@ -30,6 +32,7 @@ function App() {
     
     <div>
       <PatientProvider>
+        <DoctorProvider>
 <Router>
       {/* <Header /> */}
       <main>
@@ -68,7 +71,9 @@ function App() {
       </main>
      
     </Router>
+     </DoctorProvider>
       </PatientProvider>
+     
 
       
     </div>

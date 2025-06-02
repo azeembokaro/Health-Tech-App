@@ -6,7 +6,10 @@ import DoctorsProfile from '../DoctorsProfile/DoctorsProfile'
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css"; // Your own CSS
 
+import {useDoctor } from '../../DoctorContext'
+
 function DoctorLogin() {
+  const { setDoctorId } = useDoctor()
   const [doctor_id, setDoctorid] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -19,6 +22,8 @@ function DoctorLogin() {
         doctor_id,
         password,
       });
+
+      setDoctorId(response.data.doctorID)
 
       console.log("Response:", response.data);
       toast.success("Logged in successfully", {

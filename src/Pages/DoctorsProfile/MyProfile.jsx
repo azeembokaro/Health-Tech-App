@@ -1,7 +1,12 @@
 import React from 'react'
 import './DoctorsProfile.css'
 
+
+import { useDoctor } from '../../DoctorContext'
+
 const MyProfile = () => {
+
+  const { doctorID } =  useDoctor()
   return (
    <>
    <div class="container my-sm-5 my-3">
@@ -9,6 +14,7 @@ const MyProfile = () => {
       <h2 class="text-center py-sm-4 py-2">
         Doctor's Profile
       </h2>
+      <h3 className='text-center text-dark py-3'> The Doctor's Profile Is :{doctorID}</h3>
       <div class="col-6">
 
         <ul>
