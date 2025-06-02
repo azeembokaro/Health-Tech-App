@@ -20,22 +20,34 @@ function Services() {
   return (
     <div>
       <Header/>
-       <h1>Welcome to Services Page</h1>
-      {patient_id ? (
-        <h2>Hello, Patient ID: {patient_id}</h2>
+
+    <div class="service-banner align-items-center justify-content-center my-sm-3 my-2 py-sm-4 py-2">
+    <h3 className="text-center pt-3 pb-1">Avail Our Plethora of Services</h3>
+ <div class="py-3">
+
+{patient_id ? (
+        <h3>Hello, Patient ID: {patient_id}</h3>
       ) : (
-        <h2>No patient logged in.</h2>
+        <h3>No patient logged in.</h3>
       )}
+ </div>
+  
+</div>
+      
+      
        
-      <div className="container services">
-        <div className="row">
-          <h3 className="text-center py-3 text-dark">Avail Our Plethora of Services</h3>
+      <div className="container-fluid services">
+
+        <div className="row mt-sm-5 mt-3 my-0">
+        
           <div className="col-sm-4 col-10 mb-sm-0 mb-3 offset-sm-0 offset-1">
             <div className="card pt-4 pb-2">
               <img src={DoctorCard} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">One To One With Doctor</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, iure!</p>
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis deleniti nesciunt deserunt distinctio, facere ad beatae ullam animi molestiae alias iure eum harum ipsum quod sequi 
+                </p>
                  <Link to="/DoctorOneTwoOne" className="btn btn-primary">
           Avail Service
         </Link>
@@ -48,7 +60,9 @@ function Services() {
               <img src={ConsultExpert} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Consult With Expert</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, odio!</p>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora nam possimus quis quibusdam vel tempore recusandae explicabo assumenda vitae repellendus! Nemo quaerat corporis excepturi 
+                </p>
                 <a href="#" className="btn btn-primary">Avail Service</a>
               </div>
             </div>
@@ -58,20 +72,22 @@ function Services() {
               <img src={MedicalInfo} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Medical Info Sharing</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, soluta.</p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae obcaecati quaerat architecto totam officia, excepturi, aliquam commodi repellat enim aliquid aperiam ducimus, 
+                </p>
                 <a href="#" className="btn btn-primary">Avail Service</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="row services">
+        <div className="row  my-sm-4 my-2">
           <div className="col-sm-4 col-10 offset-sm-0 offset-1">
             <div className="card pt-4 pb-2">
               <img src={MedicalRecord} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Medical Records</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quaerat!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum incidunt repellat excepturi, deserunt eum commodi consequatur accusamus pariatur expedita illum molestiae laborum inventore </p>
                 <a href="" className="btn btn-primary w-50 mx-auto">Avail Service</a>
               </div>
             </div>
@@ -82,13 +98,32 @@ function Services() {
               <img src={HealthcareService} className="card-img-top" alt="..." />
               <div className="card-body">
                 <p className="card-title">Find Healthcare Service</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, cupiditate.</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius dolorem corrupti quasi ab voluptates sapiente numquam tempore, aspernatur, rem quo consectetur temporibus adipisci 
+                </p>
                 <a href="#" className="btn btn-primary">Avail Service</a>
               </div>
             </div>
           </div>
+
+  <div className="col-sm-4 col-10 offset-sm-0 offset-1">
+            <div className="card pt-4 pb-2">
+              <img src={HealthcareService} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <p className="card-title">Find Healthcare Service</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius dolorem corrupti quasi ab voluptates sapiente numquam tempore, aspernatur, rem quo consectetur temporibus adipisci 
+                </p>
+                <a href="#" className="btn btn-primary">Avail Service</a>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
+
+
       <Footer/>
     </div>
   )

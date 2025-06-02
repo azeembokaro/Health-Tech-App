@@ -11,7 +11,7 @@ function Header() {
   return (
    
       <div className="container-fluid">
-      <nav className="navbar navbar-expand-sm navigation_wrap">
+      <nav className="navbar navbar-expand-sm navigation_wrap navbar-dark">
         <div className='logo'>
 <a className="navbar-brand ms-sm-4" href="#">
             HealthTech App

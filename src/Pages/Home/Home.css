@@ -20,6 +20,10 @@ h2{
     /* height: auto; */
  }
 
+ #hero-heading{
+   color: #14af97;
+ }
+
  .services .card{
 width: 80%;
 margin: 5% auto;
@@ -54,16 +58,19 @@ background: #21695c;
    /* border-radius: 12px; */
    padding: 0.45rem 0.15rem;
    text-decoration: none;
-   background-color: #21695c;
+   background-color: #14af97;
     border-width: 0;
     border-color: #21695c;
     color:white;
     font-weight: 500;
+    height: 60px;
+    font-size: 20px;
  }
 
  @media(max-width:571px){
 .sign-up button{
-   font-size: 14px;
+   font-size: 16px;
+   height: 50px;
 }
  }
 
@@ -87,13 +94,13 @@ background: #21695c;
     object-fit: contain;
     
  }
- .card{
+ /* .card{
     transition: all 1s ease-in-out;
 }
  .card:hover{
     transform: translateY(-20px);
     background:black;
-    }
+    } */
 
     
 

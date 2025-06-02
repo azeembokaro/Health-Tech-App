@@ -16,6 +16,11 @@
     width: 60%;
 }
 
+
+.navigation_wrap .navbar-toggler{
+    background: #14af97;
+}
+
 @media(max-width:571px){
     .navigation_wrap{
         
@@ -28,6 +33,7 @@
     font-weight: 600;
     font-size: 23px;
     line-height: 23px;
+    color: #14af97;
 }
 
 @media(max-width:571px){
@@ -68,7 +74,7 @@
 
 .navigation_wrap  .nav-item .nav-link:hover{
     color: white;
-    background: #21695c;
+    background: #14af97;
     transition: all 1s;
     border: unset;
 

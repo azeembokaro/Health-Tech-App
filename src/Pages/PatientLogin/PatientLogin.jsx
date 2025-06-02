@@ -1,6 +1,7 @@
 // src/Pages/PatientLogin/PatientLogin.jsx
 import React, { useState } from "react";
 import axios from "axios";
+import  './patientLogin.css'
 import { useNavigate } from "react-router-dom";
 import { usePatient } from "../../PatientContext";
 
@@ -30,8 +31,14 @@ function PatientLogin() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Patient Login</h2>
+<>
+
+ <div class="container mt-sm-5 mt-3">
+  <div class="row">
+    <div class="col-sm-6 col-8 offset-sm-3 offset-2">
+<form onSubmit={handleSubmit} className="login p-sm-5 p-3">
+      <h3 className="text-center">Patient Login</h3>
+      <label for="" className="py-2">Enter Your Patient ID</label>
       <input
         type="text"
         placeholder="Patient ID"
@@ -39,6 +46,7 @@ function PatientLogin() {
         onChange={(e) => setPatient_id(e.target.value)}
         required
       />
+      <label for="" className="py-2">Enter Your Password</label>
       <input
         type="password"
         placeholder="Password"
@@ -46,8 +54,19 @@ function PatientLogin() {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button type="submit">Login</button>
+      <div className="my-sm-4 my-2 text-center">
+ <button type="submit" className="btn btn-lg btn-primary text-center w-75">Login</button>
+      </div>
+     
     </form>
+    </div>
+  </div>
+
+    </div>
+    
+
+</>
+   
   );
 }
 
