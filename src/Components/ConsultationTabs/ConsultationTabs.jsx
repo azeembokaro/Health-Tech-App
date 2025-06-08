@@ -17,7 +17,7 @@ const ConsultationTabs = () => {
       </NavLink>
 
       <NavLink
-        to="/digital_consultation/doctors_symptoms"
+        to="/digital_consultation/doctors_symptoms "
         className={({ isActive }) =>
           `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
             isActive ? 'active-link' : ''
@@ -29,7 +29,7 @@ const ConsultationTabs = () => {
 
 
        <NavLink
-        to="/digital_consultation/diagnosis"
+        to="/digital_consultation/diagnosis_test"
         className={({ isActive }) =>
           `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
             isActive ? 'active-link' : ''
@@ -38,6 +38,43 @@ const ConsultationTabs = () => {
       >
        Diagnosis Test
       </NavLink>
+
+
+      <NavLink
+        to="/digital_consultation/medicines_prescribed"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
+       Medicines Prescribed
+      </NavLink>
+
+
+        <NavLink
+        to="/digital_consultation/diagnosis"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
+       Diagnosis
+      </NavLink>
+
+
+      <NavLink
+        to="/digital_consultation/treatment_plan"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
+       Treatment Plan
+      </NavLink>
+
 
      
 

@@ -54,16 +54,16 @@ const MyWaitingQueue = () => {
     if (!selectedQuery) return;
 
     try {
-      // const response = await axios.post(
-      //   "http://localhost:8080/doctorapi/giveconsultation",
-      //   selectedQuery,
-      //   {
-      //     params: { doctorId: doctorID },
-      //   }
-      // );
+      const response = await axios.post(
+        "http://localhost:8080/doctorapi/giveconsultation",
+        selectedQuery,
+        {
+          params: { doctorId: doctorID },
+        }
+      );
 
-      // setPrescription(response.data);
-      // setSubmitError("");
+      setPrescription(response.data);
+      setSubmitError("");
      navigate('/digital_consultation/doctor_observation');
     } catch (err) {
       console.error("Error giving consultation:", err);

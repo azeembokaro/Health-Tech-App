@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
+
 import './Consultation.css'
 
 function DoctorObservation() {
@@ -12,10 +13,11 @@ function DoctorObservation() {
 
   return (
     <>
-      <h1 className="text-center py-5 text-success">Doctor's Observation</h1>
+    
+      <h3 className="text-center py-2 text-success w-75 mx-auto">Doctor's Observation</h3>
 
-        <div className="mt-sm-5 mt-3 text-center">
-          <textarea name="" id="" className="doc_obs" rows = "6">
+        <div className="mt-sm-2 mt-2 text-center">
+          <textarea name="" id="" className="doc_obs w-100" rows = "6">
 
           </textarea>
 

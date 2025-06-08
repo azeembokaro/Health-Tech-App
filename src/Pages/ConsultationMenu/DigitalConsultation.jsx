@@ -2,10 +2,13 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import ConsultationTabs from '../../Components/ConsultationTabs/ConsultationTabs';
+import ConsultationInfo from '../../Components/ConsultationInfo/ConsultationInfo';
 
 import DoctorObservation from '../../Pages/ConsultationMenu/DoctorObservation'
 import DoctorsSymptoms from '../../Pages/ConsultationMenu/DoctorsSymptoms'
 import DiagnosisTest from '../../Pages/ConsultationMenu/DiagnosisTest'
+import MedicinesPrescribed from '../../Pages/ConsultationMenu/MedicinePrescriped'
+import TreatmentPlan from '../../Pages/ConsultationMenu/TreatmentPlan';
 
 const DigitalConsultation = () => {
   return (
@@ -16,10 +19,15 @@ const DigitalConsultation = () => {
 
       <div id="page-content-wrapper">
         <div className="container">
+          <ConsultationInfo/>
           <Routes>
             <Route path="doctor_observation" element={<DoctorObservation />} />
             <Route path="doctors_symptoms" element={<DoctorsSymptoms />} />
-            <Route path="diagnosis" element={<DiagnosisTest />} />
+            <Route path="diagnosis_test" element={<DiagnosisTest />} />
+
+             <Route path="medicines_prescribed" element={<MedicinesPrescribed />} />
+              <Route path="treatment_plan" element={<TreatmentPlan/>} />
+               <Route path="diagnosis" element={<DiagnosisTest />} />
             
           </Routes>
         </div>

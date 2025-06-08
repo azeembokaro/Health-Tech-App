@@ -42,3 +42,36 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.symptom-select ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.symptom-select li {
+  cursor: pointer;
+  padding: 10px 16px;
+  border: 1px solid #007bff;
+  border-radius: 20px;
+  background-color: #f8f9fa;
+  color: #007bff;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.symptom-select li.active-link {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.symptom-pill {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #17a2b8;
+  color: #fff;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 14px;
+}
