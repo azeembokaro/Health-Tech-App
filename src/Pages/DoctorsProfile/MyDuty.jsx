@@ -1,7 +1,23 @@
 import React from 'react'
+import axios from 'axios'
+import { useDoctor } from '../../DoctorContext'
+
 
 
 const MyDuty = () => {
+
+const { doctorID } = useDoctor()
+
+
+ const handleLogout = async () => {
+  try {
+    const response = await axios.post(`http://localhost:8080/doctorapi/logout/${doctorID}`);
+    console.log("Logout successful:", response.data);
+    // You can redirect or clear localStorage here if needed
+  } catch (error) {
+    console.error("Logout failed:", error);
+  }
+};
   return (
     <>
       <div className="container">
@@ -12,7 +28,7 @@ const MyDuty = () => {
               My Duty
             </h3>
             <div className="text-end">
-              <button className="btn btn-danger my-3">
+              <button className="btn btn-danger my-3" onClick = {handleLogout}>
                 Logout
               </button>
             </div>

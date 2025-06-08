@@ -1,0 +1,44 @@
+.symptom-select {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+
+.symptom-select .list-group-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+}
+
+.symptom-select .list-group-item:hover {
+  background-color: #e6f7ff;
+}
+
+.active-link {
+  background-color: crimson !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.selected-symptoms-box {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.symptom-pill {
+  background-color: #17a2b8;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+

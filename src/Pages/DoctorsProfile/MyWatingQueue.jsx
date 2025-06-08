@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDoctor } from "../../DoctorContext";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from 'react-router-dom';
+
+
 import "./DoctorsProfile.css";
 
 const MyWaitingQueue = () => {
@@ -12,6 +14,7 @@ const MyWaitingQueue = () => {
   const [selectedQuery, setSelectedQuery] = useState(null);
   const [prescription, setPrescription] = useState(null);
   const [submitError, setSubmitError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchQueue = async () => {
@@ -51,16 +54,17 @@ const MyWaitingQueue = () => {
     if (!selectedQuery) return;
 
     try {
-      const response = await axios.post(
-        "http://localhost:8080/doctorapi/giveconsultation",
-        selectedQuery,
-        {
-          params: { doctorId: doctorID },
-        }
-      );
+      // const response = await axios.post(
+      //   "http://localhost:8080/doctorapi/giveconsultation",
+      //   selectedQuery,
+      //   {
+      //     params: { doctorId: doctorID },
+      //   }
+      // );
 
-      setPrescription(response.data);
-      setSubmitError("");
+      // setPrescription(response.data);
+      // setSubmitError("");
+     navigate('/digital_consultation/doctor_observation');
     } catch (err) {
       console.error("Error giving consultation:", err);
       setSubmitError("Failed to give consultation.");
@@ -147,7 +151,7 @@ const MyWaitingQueue = () => {
         <div className="alert alert-danger mt-4 text-center">{submitError}</div>
       )}
 
-      {prescription && (
+      {/* {prescription && (
         <div className="alert alert-success mt-4">
           <h5>Consultation Submitted</h5>
           <p><strong>Digital Prescription ID:</strong> {prescription.digitalPrescptionID}</p>
@@ -155,7 +159,7 @@ const MyWaitingQueue = () => {
           <p><strong>Patient ID:</strong> {prescription.patientId}</p>
           <p><strong>Logs:</strong> {prescription.patientLog}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

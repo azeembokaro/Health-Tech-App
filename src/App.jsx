@@ -20,10 +20,15 @@ import LoginRoutes from './routes/LoginRoutes'
 import DoctorOneTwoOne from './Pages/DoctorOneTwoOne/DoctorOneTwoOne'
 
 import DoctorsProfile from './Pages/DoctorsProfile/DoctorsProfile'
+import DigitalConsultation from './Pages/ConsultationMenu/DigitalConsultation'
+
 
 import { PatientProvider } from './PatientContext';
 
 import { DoctorProvider } from './DoctorContext';
+
+
+
 
 
 function App() {
@@ -61,9 +66,18 @@ function App() {
            
 
            <Route path="/doctors_profile/*" element={<DoctorsProfile />} />
+           <Route path="/digital_consultation/*" element={<DigitalConsultation />}/>
 
 
            <Route path="/doctoronetwoone" element={<DoctorOneTwoOne/>} />
+
+          
+
+
+
+  
+
+
 
          
 
