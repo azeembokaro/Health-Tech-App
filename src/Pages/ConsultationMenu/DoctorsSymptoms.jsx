@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './Consultation.css';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const symptomOptions = [
   'Fever', 'Headache', 'Stomach Ache', 'Body Pain',
@@ -8,7 +11,15 @@ const symptomOptions = [
   'Shortness of Breath', 'Dizziness', 'Back Pain'
 ];
 
+
+
 function DoctorsSymptoms() {
+const navigate = useNavigate()
+
+const handleNextTwo = () => {
+  navigate('/digital_consultation/diagnosis_test')
+}
+
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
 
   const toggleSymptom = (symptom) => {
@@ -21,6 +32,8 @@ function DoctorsSymptoms() {
 
   return (
     <div className="container my-5">
+
+
       <div className="symptoms-page">
         <h2 className="text-center mb-4 text-primary">Doctor's Symptoms</h2>
 
@@ -52,6 +65,10 @@ function DoctorsSymptoms() {
           )}
         </div>
       </div>
+
+        <button class="btn btn-lg btn-primary" onClick={handleNextTwo}>
+          Next
+        </button>
     </div>
   );
 }
