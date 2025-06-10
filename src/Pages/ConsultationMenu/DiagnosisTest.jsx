@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Consultation.css';
 
 const testOptions = [
@@ -9,6 +10,7 @@ const testOptions = [
 ];
 
 function DiagnosisTest() {
+  const navigate = useNavigate();
   const [selectedTests, setSelectedTests] = useState([]);
 
   const toggleTest = (test) => {
@@ -17,6 +19,11 @@ function DiagnosisTest() {
     } else {
       setSelectedTests([...selectedTests, test]);
     }
+  };
+
+  const handleNext = () => {
+    // You can pass selectedTests via state or context if needed
+    navigate('/digital_consultation/medicines_prescribed');
   };
 
   return (
@@ -51,6 +58,12 @@ function DiagnosisTest() {
             </div>
           )}
         </div>
+      </div>
+
+      <div className="text-center my-5">
+        <button className="btn btn-primary" onClick={handleNext}>
+          Next
+        </button>
       </div>
     </div>
   );

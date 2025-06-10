@@ -1,33 +1,39 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-import './Consultation.css'
+import { ConsultationContext } from "../../ConsultationContext";
+
+import "./Consultation.css";
 
 function DoctorObservation() {
-
   const navigate = useNavigate();
 
+  const { observation, setObservation } = useContext(ConsultationContext);
+
   const handleNextone = () => {
-     navigate('/digital_consultation/doctors_symptoms');
-  }
+    navigate("/digital_consultation/doctors_symptoms");
+  };
 
   return (
     <>
-    
-      <h3 className="text-center py-2 text-success w-75 mx-auto">Doctor's Observation</h3>
+      <h3 className="text-center py-2 text-success w-75 mx-auto">
+        Doctor's Observation
+      </h3>
 
-        <div className="mt-sm-2 mt-2 text-center">
-          <textarea name="" id="" className="doc_obs w-100" rows = "6">
+      <div className="mt-sm-2 mt-2 text-center">
+        <textarea
+          name=""
+          id=""
+          className="doc_obs w-100"
+          rows="6"
+          value={observation}
+          onChange={(e) => setObservation(e.target.value)}
+        ></textarea>
 
-          </textarea>
-
-           <button className="btn btn-info mt-sm-5 mt-3" onClick={handleNextone}>
+        <button className="btn btn-info mt-sm-5 mt-3" onClick={handleNextone}>
           Next
         </button>
-
-        </div>
-
-       
+      </div>
     </>
   );
 }

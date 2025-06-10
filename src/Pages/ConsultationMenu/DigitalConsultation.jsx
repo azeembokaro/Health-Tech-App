@@ -9,6 +9,8 @@ import DoctorsSymptoms from '../../Pages/ConsultationMenu/DoctorsSymptoms'
 import DiagnosisTest from '../../Pages/ConsultationMenu/DiagnosisTest'
 import MedicinesPrescribed from '../../Pages/ConsultationMenu/MedicinePrescriped'
 import TreatmentPlan from '../../Pages/ConsultationMenu/TreatmentPlan';
+import Diagnosis from '../../Pages/ConsultationMenu/Diagnosis'
+import { ConsultationProvider } from '../../ConsultationContext'
 
 const DigitalConsultation = () => {
   return (
@@ -20,16 +22,19 @@ const DigitalConsultation = () => {
       <div id="page-content-wrapper">
         <div className="container">
           <ConsultationInfo/>
-          <Routes>
+          <ConsultationProvider>
+ <Routes>
             <Route path="doctor_observation" element={<DoctorObservation />} />
             <Route path="doctors_symptoms" element={<DoctorsSymptoms />} />
             <Route path="diagnosis_test" element={<DiagnosisTest />} />
 
              <Route path="medicines_prescribed" element={<MedicinesPrescribed />} />
               <Route path="treatment_plan" element={<TreatmentPlan/>} />
-               <Route path="diagnosis" element={<DiagnosisTest />} />
+               <Route path="diagnosis" element={<Diagnosis />} />
             
           </Routes>
+          </ConsultationProvider>
+         
         </div>
       </div>
     </div>
