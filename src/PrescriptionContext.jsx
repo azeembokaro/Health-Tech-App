@@ -9,10 +9,10 @@ export const usePrescription = () => useContext(PrescriptionContext);
 
 // Provider component
 export const PrescriptionProvider = ({ children }) => {
-  const [presID, setPresID] = useState("");
+  const [digitalPrescptionID, setdigitalPrescptionID] = useState("");
 
   return (
-    <PrescriptionContext.Provider value={{ presID, setPresID }}>
+    <PrescriptionContext.Provider value={{ digitalPrescptionID, setdigitalPrescptionID}}>
       {children}
     </PrescriptionContext.Provider>
   );

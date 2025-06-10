@@ -27,7 +27,7 @@ import { PatientProvider } from './PatientContext';
 
 import { DoctorProvider } from './DoctorContext';
 
-import { PresProvider }  from './PrescriptionContext'
+import { PrescriptionProvider }  from './PrescriptionContext'
 
 
 
@@ -38,7 +38,7 @@ function App() {
     <div>
       <PatientProvider>
         <DoctorProvider>
-          <PresProvider>
+          <PrescriptionProvider>
 
             <Router>
       {/* <Header /> */}
@@ -87,7 +87,7 @@ function App() {
       </main>
      
     </Router>
-          </PresProvider>
+          </PrescriptionProvider>
 
      </DoctorProvider>
       </PatientProvider>

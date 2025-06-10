@@ -1,20 +1,20 @@
 import React from 'react'
+import { usePrescription } from '../../PrescriptionContext'
+import { useDoctor } from '../../DoctorContext'
+import { usePatient } from '../../PatientContext'
 
-
- 
 function ConsultationInfo() {
+  const { digitalPrescptionID } = usePrescription()
+  const { doctorID } = useDoctor()
+  const { patient_id } = usePatient()
 
-   
   return (
-    <>
-    <div class="d-flex-justify-coontent-space-between bg-primary text-light">
-        <p>Prescription Id:</p>
-        <p>Doctor Id</p>
-        <p>Patient Id</p>
-        <p>Case Id</p>
+    <div className="d-flex justify-content-between bg-primary text-light p-3">
+      <p>Prescription ID: {digitalPrescptionID}</p>
+      <p>Doctor ID: {doctorID}</p>
+      <p>Patient ID: {patient_id}</p>
+      <p>Case ID</p>
     </div>
-    
-    </>
   )
 }
 

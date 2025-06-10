@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDoctor } from "../../DoctorContext";
 import { useNavigate } from 'react-router-dom';
-
+import { usePrescription } from '../../PrescriptionContext'
 
 import "./DoctorsProfile.css";
 
@@ -14,6 +14,7 @@ const MyWaitingQueue = () => {
   const [selectedQuery, setSelectedQuery] = useState(null);
   const [prescription, setPrescription] = useState(null);
   const [submitError, setSubmitError] = useState("");
+   const { setdigitalPrescptionID } = usePrescription();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,26 +51,27 @@ const MyWaitingQueue = () => {
     setSubmitError("");
   };
 
-  const handleGiveConsultation = async () => {
-    if (!selectedQuery) return;
+ const handleGiveConsultation = async () => {
+  if (!selectedQuery) return;
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/doctorapi/giveconsultation",
-        selectedQuery,
-        {
-          params: { doctorId: doctorID },
-        }
-      );
+  try {
+    const response = await axios.post(
+      "http://localhost:8080/doctorapi/giveconsultation",
+      selectedQuery,
+      {
+        params: { doctorId: doctorID },
+      }
+    );
 
-      setPrescription(response.data);
-      setSubmitError("");
-     navigate('/digital_consultation/doctor_observation');
-    } catch (err) {
-      console.error("Error giving consultation:", err);
-      setSubmitError("Failed to give consultation.");
-    }
-  };
+    setdigitalPrescptionID(response.data.digitalPrescptionID);  // <- fix key spelling
+    setSubmitError("");
+    navigate('/digital_consultation/doctor_observation');
+  } catch (err) {
+    console.error("Error giving consultation:", err);
+    setSubmitError("Failed to give consultation.");
+  }
+};
+
 
   return (
     <div className="container my-5">
