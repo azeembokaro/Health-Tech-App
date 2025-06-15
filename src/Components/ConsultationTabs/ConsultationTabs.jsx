@@ -24,7 +24,7 @@ const ConsultationTabs = () => {
           }`
         }
       >
-       Doctor's symptoms
+       Medical Condition
       </NavLink>
 
 
@@ -75,6 +75,30 @@ const ConsultationTabs = () => {
        Treatment Plan
       </NavLink>
 
+
+        <NavLink
+        to="/digital_consultation/recomendation"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
+       Recomendation
+      </NavLink>
+
+
+
+ <NavLink
+        to="/digital_consultation/submission"
+        className={({ isActive }) =>
+          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+            isActive ? 'active-link' : ''
+          }`
+        }
+      >
+       Submission
+      </NavLink>
 
      
 

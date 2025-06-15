@@ -1,52 +1,136 @@
-import React, { useContext } from "react";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { usePrescription } from '../../PrescriptionContext';
 import './Consultation.css';
-import { ConsultationContext } from "../../ConsultationContext";
 
 function TreatmentPlan() {
-  const {
-    observation,
-    symptoms,
-    disease,
-    medicines,
-    treatment,
-    setTreatment
-  } = useContext(ConsultationContext);
+  const navigate = useNavigate();
+  const { plan, setPlan } = usePrescription();
 
-  const handleSubmitConsultation = () => {
-    const finalData = {
-      observation,
-      symptoms,
-      disease,
-      medicines,
-      treatment
-    };
+  const [form, setForm] = useState({
+    presenttype: '',
+    presentsubtype: '',
+    noofDays: '',
+    nextConsultationDate: '',
+    nextconsultationtype: ''
+  });
 
-    console.log("🔍 Final Digital Consultation Data:");
-    console.table(finalData);
-    alert("Consultation submitted! Check the console for full data.");
+  const handleChange = (field, value) => {
+    setForm({ ...form, [field]: value });
+  };
+
+  const addTreatment = () => {
+    setPlan([...plan, form]);
+    setForm({
+      presenttype: '',
+      presentsubtype: '',
+      noofDays: '',
+      nextConsultationDate: '',
+      nextconsultationtype: ''
+    });
+  };
+
+  const removeTreatment = (index) => {
+    const updated = plan.filter((_, i) => i !== index);
+    setPlan(updated);
+  };
+
+  const handleNext = () => {
+    navigate('/digital_consultation/submission');
   };
 
   return (
-    <>
-      <h5 className="text-left text-primary">Treatment Plan</h5>
+    <div className="container my-5">
+      <h2 className="text-center mb-4 text-primary">Treatment Plan</h2>
 
-      <div className="mt-sm-2 mt-2 text-center">
-        <textarea
-          className="doc_obs w-100"
-          rows="6"
-          value={treatment}
-          onChange={(e) => setTreatment(e.target.value)} // ✅ Added this line
-          placeholder="Write treatment plan here..."
-        ></textarea>
+      {/* Input Fields */}
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <label className="form-label">Treatment Type</label>
+          <input
+            type="text"
+            className="form-control"
+            value={form.presenttype}
+            onChange={(e) => handleChange('presenttype', e.target.value)}
+          />
+        </div>
 
-        <button
-          className="btn btn-info mt-sm-5 mt-3"
-          onClick={handleSubmitConsultation}
-        >
-          Submit
+        <div className="col-md-6">
+          <label className="form-label">Treatment Subtype</label>
+          <input
+            type="text"
+            className="form-control"
+            value={form.presentsubtype}
+            onChange={(e) => handleChange('presentsubtype', e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="row mb-3">
+        <div className="col-md-4">
+          <label className="form-label">No. of Days</label>
+          <input
+            type="number"
+            className="form-control"
+            value={form.noofDays}
+            onChange={(e) => handleChange('noofDays', e.target.value)}
+            min="0"
+          />
+        </div>
+
+        <div className="col-md-4">
+          <label className="form-label">Next Consultation Date</label>
+          <input
+            type="date"
+            className="form-control"
+            value={form.nextConsultationDate}
+            onChange={(e) => handleChange('nextConsultationDate', e.target.value)}
+          />
+        </div>
+
+        <div className="col-md-4">
+          <label className="form-label">Next Consultation Type</label>
+          <input
+            type="text"
+            className="form-control"
+            value={form.nextconsultationtype}
+            onChange={(e) => handleChange('nextconsultationtype', e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="text-end">
+        <button className="btn btn-success mb-3" onClick={addTreatment}>
+          + Add Treatment Plan
         </button>
       </div>
-    </>
+
+      {/* Display Added Plans */}
+      {plan.length > 0 && (
+        <div className="card p-3 mb-4">
+          <h5 className="mb-3">Added Treatment Plans:</h5>
+          {plan.map((p, idx) => (
+            <div
+              key={idx}
+              className="border p-2 mb-2 d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <strong>{p.presenttype || 'N/A'}</strong> → {p.presentsubtype || 'N/A'}, Days: {p.noofDays || 'N/A'}, Next Visit: {p.nextConsultationDate || 'N/A'} ({p.nextconsultationtype || 'N/A'})
+              </div>
+              <button className="btn btn-sm btn-outline-danger" onClick={() => removeTreatment(idx)}>
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="text-center">
+        <button className="btn btn-primary" onClick={handleNext}>
+          Next
+        </button>
+      </div>
+    </div>
   );
 }
 

@@ -7,14 +7,14 @@ import { usePrescription } from '../../PrescriptionContext'
 import "./DoctorsProfile.css";
 
 const MyWaitingQueue = () => {
-  const { doctorID } = useDoctor();
+  const {doctorID } = useDoctor();
   const [queue, setQueue] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedQuery, setSelectedQuery] = useState(null);
   const [prescription, setPrescription] = useState(null);
   const [submitError, setSubmitError] = useState("");
-   const { setdigitalPrescptionID } = usePrescription();
+   const {digitalPrescptionID, setDigitalPrescptionID} = usePrescription();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const MyWaitingQueue = () => {
       }
     );
 
-    setdigitalPrescptionID(response.data.digitalPrescptionID);  // <- fix key spelling
+    setDigitalPrescptionID(response.data.digitalPrescptionID);  
     setSubmitError("");
     navigate('/digital_consultation/doctor_observation');
   } catch (err) {

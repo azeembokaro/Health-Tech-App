@@ -1,69 +1,100 @@
-import React, { useContext } from 'react';
-import { ConsultationContext } from '../../ConsultationContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePrescription } from '../../PrescriptionContext';
 import './Consultation.css';
 
 const diseaseOptions = [
-  'Fever', 'High Blood Pressure', 'Low Blood Pressure', 'Migrane', 'Respiratory Infection',
-  
+  'Fever', 'High Blood Pressure', 'Low Blood Pressure', 'Migraine', 'Respiratory Infection',
+  'Anemia', 'Asthma', 'Diabetes', 'Arthritis', 'Tuberculosis'
 ];
 
 function Diagnosis() {
-  const { disease, setDisease } = useContext(ConsultationContext);
   const navigate = useNavigate();
+  const { diag, setDiag } = usePrescription();
 
-  const toggleDisease = (item) => {
-    if (disease.includes(item)) {
-      setDisease(disease.filter((d) => d !== item));
-    } else {
-      setDisease([...disease, item]);
-    }
+  const [entries, setEntries] = useState(
+    diag.length > 0 ? diag : [
+      { diseasename: '', notes: '' }
+    ]
+  );
+
+  const handleChange = (index, field, value) => {
+    const updated = [...entries];
+    updated[index][field] = value;
+    setEntries(updated);
+  };
+
+  const handleAdd = () => {
+    setEntries([...entries, { diseasename: '', notes: '' }]);
+  };
+
+  const handleRemove = (index) => {
+    const updated = [...entries];
+    updated.splice(index, 1);
+    setEntries(updated);
   };
 
   const handleNext = () => {
+    setDiag(entries); // Save to context
     navigate('/digital_consultation/treatment_plan');
   };
 
   return (
     <div className="container my-5">
-      <div className="diagnosis-page">
-        <h2 className="text-center mb-4 text-dark">
-          Diseases Diagnosed
-        </h2>
+      <h2 className="text-center text-dark mb-4">Diseases Diagnosed</h2>
 
-        <label htmlFor="test-list" className="form-label">Click to select the diseases diagnosed</label>
-        <div className="test-select p-3">
-          <ul className="list-group">
-            {diseaseOptions.map((item, idx) => (
-              <li
-                key={idx}
-                className={`list-group-item ${disease.includes(item) ? 'active-link' : ''}`}
-                onClick={() => toggleDisease(item)}
+      {entries.map((entry, idx) => (
+        <div key={idx} className="border rounded p-3 mb-4 shadow-sm">
+          <div className="row mb-2">
+            <div className="col-md-5">
+              <label className="form-label">Disease Name</label>
+              <select
+                className="form-select"
+                value={entry.diseasename}
+                onChange={(e) => handleChange(idx, 'diseasename', e.target.value)}
               >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="selected-tests-box mt-4 p-3">
-          <h5 className="mb-3">Selected Tests:</h5>
-          {disease.length === 0 ? (
-            <p className="form-text">No diagnostic tests selected yet.</p>
-          ) : (
-            <div className="selected-tags">
-              {disease.map((item, idx) => (
-                <span key={idx} className="symptom-pill">{item}</span>
-              ))}
+                <option value="">Select</option>
+                {diseaseOptions.map((disease, i) => (
+                  <option key={i} value={disease}>{disease}</option>
+                ))}
+              </select>
             </div>
-          )}
-        </div>
 
-        <div className="text-center mt-4">
-          <button className="btn btn-primary" onClick={handleNext}>
-            Next
-          </button>
+            <div className="col-md-6">
+              <label className="form-label">Notes / Observations</label>
+              <input
+                type="text"
+                className="form-control"
+                value={entry.notes}
+                onChange={(e) => handleChange(idx, 'notes', e.target.value)}
+                placeholder="E.g., chronic, borderline, post-viral"
+              />
+            </div>
+
+            <div className="col-md-1 d-flex align-items-end">
+              {entries.length > 1 && (
+                <button
+                  className="btn btn-danger btn-sm"
+                  onClick={() => handleRemove(idx)}
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
         </div>
+      ))}
+
+      <div className="text-center mb-4">
+        <button className="btn btn-outline-primary" onClick={handleAdd}>
+          + Add Another Diagnosis
+        </button>
+      </div>
+
+      <div className="text-center">
+        <button className="btn btn-primary" onClick={handleNext}>
+          Next
+        </button>
       </div>
     </div>
   );

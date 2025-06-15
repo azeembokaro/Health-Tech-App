@@ -1,16 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-
-import { ConsultationContext } from "../../ConsultationContext";
-
+import { usePrescription } from "../../PrescriptionContext";
 import "./Consultation.css";
 
 function DoctorObservation() {
   const navigate = useNavigate();
+  const { patientLog, setPatientLog } = usePrescription(); // Using context
 
-  const { observation, setObservation } = useContext(ConsultationContext);
-
-  const handleNextone = () => {
+  const handleNextOne = () => {
     navigate("/digital_consultation/doctors_symptoms");
   };
 
@@ -22,15 +19,13 @@ function DoctorObservation() {
 
       <div className="mt-sm-2 mt-2 text-center">
         <textarea
-          name=""
-          id=""
           className="doc_obs w-100"
           rows="6"
-          value={observation}
-          onChange={(e) => setObservation(e.target.value)}
+          value={patientLog}
+          onChange={(e) => setPatientLog(e.target.value)}
         ></textarea>
 
-        <button className="btn btn-info mt-sm-5 mt-3" onClick={handleNextone}>
+        <button className="btn btn-info mt-sm-5 mt-3" onClick={handleNextOne}>
           Next
         </button>
       </div>
