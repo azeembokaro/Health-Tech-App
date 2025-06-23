@@ -7,6 +7,7 @@ import MedicalInfo from '../../assets/images/medical-info.png';
 import MedicalRecord from '../../assets/images/medical.jpeg';
 import HealthcareService from '../../assets/images/healthcare-service.png';
 import DoctorOneTwoOne from '../DoctorOneTwoOne/DoctorOneTwoOne';
+import PersistantQueue from '../PersistantQueue/PersistantQueue'
 import './Services.css'
 import '../Home/Home.css'
 import { Link } from 'react-router-dom';
@@ -55,7 +56,38 @@ function Services() {
             </div>
           </div>
 
+         
+
+            <div className="col-sm-4 col-10 offset-sm-0 offset-1">
+            <div className="card pt-4 pb-2">
+              <img src={MedicalRecord} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <p className="card-title">Persistant Queue</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum incidunt repellat excepturi, deserunt eum commodi consequatur accusamus pariatur expedita illum molestiae laborum inventore </p>
+                <Link to ="/persistant_queue" className="btn btn-primary w-50 mx-auto">Avail Service</Link>
+              </div>
+            </div>
+          </div>
+
           <div className="col-sm-4 col-10 mb-sm-0 mb-3 offset-sm-0 offset-1">
+            <div className="card pt-4 pb-2">
+              <img src={MedicalInfo} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <p className="card-title">
+                  Patient Dashboard
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae obcaecati quaerat architecto totam officia, excepturi, aliquam commodi repellat enim aliquid aperiam ducimus, 
+                </p>
+                <Link to ="/patient_dashboard" className="btn btn-primary">Avail Service</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row  my-sm-4 my-2">
+
+         <div className="col-sm-4 col-10 mb-sm-0 mb-3 offset-sm-0 offset-1">
             <div className="card pt-4 pb-2">
               <img src={ConsultExpert} className="card-img-top" alt="..." />
               <div className="card-body">
@@ -63,32 +95,7 @@ function Services() {
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora nam possimus quis quibusdam vel tempore recusandae explicabo assumenda vitae repellendus! Nemo quaerat corporis excepturi 
                 </p>
-                <a href="#" className="btn btn-primary">Avail Service</a>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4 col-10 mb-sm-0 mb-3 offset-sm-0 offset-1">
-            <div className="card pt-4 pb-2">
-              <img src={MedicalInfo} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-title">Medical Info Sharing</p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae obcaecati quaerat architecto totam officia, excepturi, aliquam commodi repellat enim aliquid aperiam ducimus, 
-                </p>
-                <a href="#" className="btn btn-primary">Avail Service</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row  my-sm-4 my-2">
-          <div className="col-sm-4 col-10 offset-sm-0 offset-1">
-            <div className="card pt-4 pb-2">
-              <img src={MedicalRecord} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <p className="card-title">Medical Records</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum incidunt repellat excepturi, deserunt eum commodi consequatur accusamus pariatur expedita illum molestiae laborum inventore </p>
-                <a href="" className="btn btn-primary w-50 mx-auto">Avail Service</a>
+                <Link to="/ask_expert" className="btn btn-primary">Avail Service</Link>
               </div>
             </div>
           </div>

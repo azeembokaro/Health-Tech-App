@@ -1,0 +1,23 @@
+.ask-expert-box {
+  background: linear-gradient(100deg, #26b7e7 29%, #61dd44 74%);;
+  border-radius: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.beautiful-input {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.beautiful-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.form-label{
+    color: #fff;
+}
