@@ -35,9 +35,20 @@ function TreatmentPlan() {
     setPlan(updated);
   };
 
+  // const handleNext = () => {
+  //   navigate('/digital_consultation/submission');
+  // };
+
+
   const handleNext = () => {
-    navigate('/digital_consultation/submission');
-  };
+  // Check if any field is filled (avoid adding empty rows)
+  const hasValues = Object.values(form).some(value => value !== '');
+  if (hasValues) {
+    setPlan([...plan, form]);
+  }
+  navigate('/digital_consultation/submission');
+};
+
 
   return (
     <div className="container my-5">

@@ -7,6 +7,8 @@ import MyQueue from './MyWatingQueue';
 import MyDuty from './MyDuty';
 import MyCases from './CasesHandled';
 
+
+
 const DoctorProfile = () => {
   return (
     <div className="d-flex" id="wrapper">
@@ -16,12 +18,18 @@ const DoctorProfile = () => {
 
       <div id="page-content-wrapper">
         <div className="container">
-          <Routes>
+        
+<Routes>
             <Route path="my_profile" element={<MyProfile />} />
-            <Route path="my_queue" element={<MyQueue />} />
+            
+<Route path="my_queue" element={<MyQueue />} />
+
+            
             <Route path="my_duty" element={<MyDuty />} />
             <Route path="my_cases" element={<MyCases />} />
           </Routes>
+        
+          
         </div>
       </div>
     </div>

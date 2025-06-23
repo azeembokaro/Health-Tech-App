@@ -14,7 +14,8 @@ const MyWaitingQueue = () => {
   const [selectedQuery, setSelectedQuery] = useState(null);
   const [prescription, setPrescription] = useState(null);
   const [submitError, setSubmitError] = useState("");
-   const {digitalPrescptionID, setDigitalPrescptionID} = usePrescription();
+ const { digitalPrescptionID, setDigitalPrescptionID } = usePrescription();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,14 +64,20 @@ const MyWaitingQueue = () => {
       }
     );
 
-    setDigitalPrescptionID(response.data.digitalPrescptionID);  
-    setSubmitError("");
+    const idFromBackend = response.data.digitalPrescptionID;
+    console.log("🟡 Received from backend:", idFromBackend);
+
+    setDigitalPrescptionID(idFromBackend);
+    console.log("🟢 setDigitalPrescptionID() called with:", idFromBackend);
+    
+
     navigate('/digital_consultation/doctor_observation');
   } catch (err) {
-    console.error("Error giving consultation:", err);
+    console.error("❌ Error giving consultation:", err);
     setSubmitError("Failed to give consultation.");
   }
 };
+
 
 
   return (

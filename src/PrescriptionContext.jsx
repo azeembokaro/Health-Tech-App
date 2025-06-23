@@ -4,8 +4,13 @@ const PrescriptionContext = createContext();
 export const usePrescription = () => useContext(PrescriptionContext);
 
 export const PrescriptionProvider = ({ children }) => {
-  const [digitalPrescptionID, setDigitalPrescptionID] = useState("");
-  
+  const [digitalPrescptionIDState, _setDigitalPrescptionID] = useState("");
+
+  const setDigitalPrescptionID = (value) => {
+    console.log("📘 [PrescriptionContext] Setting digitalPrescptionID:", value);
+    _setDigitalPrescptionID(value);
+  };
+
   const [doctorID, setDoctorID] = useState("");
   const [patientId, setPatientId] = useState("");
   const [patientLog, setPatientLog] = useState("");
@@ -15,12 +20,12 @@ export const PrescriptionProvider = ({ children }) => {
   const [sym, setSym] = useState([]);
   const [observation, setObservation] = useState([]);
   const [diag, setDiag] = useState([]);
-  const [plan,setPlan]= useState([]);
-  
+  const [plan, setPlan] = useState([]);
   const [recommendations, setRecommendations] = useState("");
 
   // Optional: Clear all fields on logout or reset
   const resetPrescription = () => {
+    console.log("🔄 [PrescriptionContext] Resetting context to default values.");
     setDigitalPrescptionID("");
     setDoctorID("");
     setPatientId("");
@@ -37,7 +42,8 @@ export const PrescriptionProvider = ({ children }) => {
   return (
     <PrescriptionContext.Provider
       value={{
-        digitalPrescptionID, setDigitalPrescptionID,
+        digitalPrescptionID: digitalPrescptionIDState,
+        setDigitalPrescptionID,
         doctorID, setDoctorID,
         patientId, setPatientId,
         patientLog, setPatientLog,
@@ -46,7 +52,7 @@ export const PrescriptionProvider = ({ children }) => {
         sym, setSym,
         observation, setObservation,
         diag, setDiag,
-        plan,setPlan,
+        plan, setPlan,
         recommendations, setRecommendations,
         resetPrescription
       }}

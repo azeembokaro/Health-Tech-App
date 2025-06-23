@@ -1,15 +1,15 @@
-import React from 'react';
-import './Consultation.css';
+import React from "react";
+import "./Consultation.css";
 
-import { usePrescription } from '../../PrescriptionContext';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { usePrescription } from "../../PrescriptionContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function SubmitPrescription() {
   const navigate = useNavigate();
 
   const {
-    digitalPrescptionID, // keep variable name consistent with context
+     // keep variable name consistent with context
     doctorID,
     patientId,
     prescripedMedicine,
@@ -22,9 +22,13 @@ function SubmitPrescription() {
     resetPrescription,
   } = usePrescription();
 
+  const{digitalPrescptionID} = usePrescription();
+
   const handleSubmit = async () => {
     if (!digitalPrescptionID || digitalPrescptionID.trim() === "") {
-      alert("❌ Digital Prescription ID is missing. Please go back and select a patient first.");
+      alert(
+        "❌ Digital Prescription ID is missing. Please go back and select a patient first."
+      );
       return;
     }
 
@@ -32,14 +36,17 @@ function SubmitPrescription() {
       PrescripedMedicine: prescripedMedicine,
       tests: tests,
       sym: sym,
-      observation: observation,
+      observation: [observation],
       diag: diag,
       plan: plan,
-      Recommendations: [recommendations], // Backend expects List<Suggestions>
+      Recommendations: [recommendations] // Backend expects List<Suggestions>
     };
 
     console.log("📦 Payload:", JSON.stringify(payload, null, 2));
-    console.log("🧑‍⚕️ Submitting with digitalPrescriptionID (did):", digitalPrescptionID);
+    console.log(
+      "🧑‍⚕️ Submitting with digitalPrescriptionID (did):",
+      digitalPrescptionID
+    );
 
     try {
       const response = await axios.post(
@@ -47,7 +54,7 @@ function SubmitPrescription() {
         payload,
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -56,29 +63,44 @@ function SubmitPrescription() {
       alert("✅ Prescription successfully submitted!");
 
       resetPrescription();
-      navigate('/dashboard');
+      navigate("/dashboard");
     } catch (error) {
       console.error("❌ Error submitting prescription:", error);
-      alert("❌ Failed to submit prescription. Check browser console for more info.");
+      alert(
+        "❌ Failed to submit prescription. Check browser console for more info."
+      );
     }
   };
 
   const renderPreview = (label, data) => (
     <div className="mb-4">
       <h5 className="text-dark">{label}</h5>
-      <pre className="bg-light border p-2 rounded">{JSON.stringify(data, null, 2)}</pre>
+      <pre className="bg-light border p-2 rounded">
+        {JSON.stringify(data, null, 2)}
+      </pre>
     </div>
   );
 
   return (
     <div className="container my-5">
       <h2 className="text-center mb-4 text-primary">Submit Prescription</h2>
-      <p className="text-muted text-center">Review all prescription data before submission.</p>
+      <p className="text-muted text-center">
+        Review all prescription data before submission.
+      </p>
 
       <div className="border rounded p-4 bg-white shadow-sm">
-        <div><strong>Digital Prescription ID:</strong> {digitalPrescptionID || <span className="text-danger">Not Set</span>}</div>
-        <div><strong>Doctor ID:</strong> {doctorID || <span className="text-danger">Not Set</span>}</div>
-        <div><strong>Patient ID:</strong> {patientId || <span className="text-danger">Not Set</span>}</div>
+        <div>
+          <strong>Digital Prescription ID:</strong>{" "}
+          {!digitalPrescptionID || <span className="text-danger">Not Set</span>}
+        </div>
+        <div>
+          <strong>Doctor ID:</strong>{" "}
+          {doctorID || <span className="text-danger">Not Set</span>}
+        </div>
+        <div>
+          <strong>Patient ID:</strong>{" "}
+          {patientId || <span className="text-danger">Not Set</span>}
+        </div>
 
         {renderPreview("Prescribed Medicines", prescripedMedicine)}
         {renderPreview("Diagnostic Tests", tests)}

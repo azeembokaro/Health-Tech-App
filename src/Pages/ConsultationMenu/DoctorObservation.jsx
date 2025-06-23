@@ -5,7 +5,10 @@ import "./Consultation.css";
 
 function DoctorObservation() {
   const navigate = useNavigate();
-  const { patientLog, setPatientLog } = usePrescription(); // Using context
+  const { observation, setObservation } = usePrescription();
+
+  // Initialize if undefined
+  const currentObservation = observation || { note: "", severity: "" };
 
   const handleNextOne = () => {
     navigate("/digital_consultation/doctors_symptoms");
@@ -21,9 +24,31 @@ function DoctorObservation() {
         <textarea
           className="doc_obs w-100"
           rows="6"
-          value={patientLog}
-          onChange={(e) => setPatientLog(e.target.value)}
+          placeholder="Enter your observation note"
+          value={currentObservation.note}
+          onChange={(e) =>
+            setObservation({
+              ...currentObservation,
+              note: e.target.value,
+            })
+          }
         ></textarea>
+
+        <select
+          className="form-select mt-3"
+          value={currentObservation.severity}
+          onChange={(e) =>
+            setObservation({
+              ...currentObservation,
+              severity: e.target.value,
+            })
+          }
+        >
+          <option value="">Select severity</option>
+          <option value="Mild">Mild</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Severe">Severe</option>
+        </select>
 
         <button className="btn btn-info mt-sm-5 mt-3" onClick={handleNextOne}>
           Next
