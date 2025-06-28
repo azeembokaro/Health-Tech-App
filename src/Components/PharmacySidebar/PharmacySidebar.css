@@ -1,0 +1,24 @@
+.list_button{
+     background: linear-gradient(90deg, rgba(33, 165, 147, 1) 0, rgba(18, 87, 103, 1) 50%, rgba(10, 43, 79, 1) 100%) !important;
+     color: white;
+     min-width: 200px;
+     max-width: 300px;
+     border-radius: 20px;
+}
+
+.list_button:hover{
+     background: #505cc1;
+     color: crimson;
+}
+
+ .list-group-item:first-child
+ {
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
+}
+
+.list-group-item:last-child{
+      border-bottom-right-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+

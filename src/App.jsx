@@ -20,6 +20,8 @@ import LoginRoutes from "./routes/LoginRoutes";
 import DoctorOneTwoOne from "./Pages/DoctorOneTwoOne/DoctorOneTwoOne";
 
 import DoctorsProfile from "./Pages/DoctorsProfile/DoctorsProfile";
+import PharmacyProfile from "./Pages/PharmacyProfile/PharmacyProfile";
+
 import DigitalConsultation from "./Pages/ConsultationMenu/DigitalConsultation";
 import DashboardMenu from "./Pages/DashboardMenu/DashboardMenu";
 
@@ -66,6 +68,12 @@ function App() {
                     path="/doctors_profile/*"
                     element={<DoctorsProfile />}
                   />
+
+                  <Route
+                    path="/pharmacy_profile/*"
+                    element={<PharmacyProfile/>}
+                  />
+
                   <Route
                     path="/digital_consultation/*"
                     element={<DigitalConsultation />}
