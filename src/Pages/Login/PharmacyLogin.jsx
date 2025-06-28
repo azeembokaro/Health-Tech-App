@@ -36,6 +36,7 @@ function PharmacyLogin() {
 
       setDoctorid("");
       setPassword("");
+      navigate('/pharmacy_profile')
     } catch (error) {
       console.error("Error in Login Form:", error);
       toast.error("Login failed! Please check your credentials.", {

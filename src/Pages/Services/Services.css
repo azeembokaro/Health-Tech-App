@@ -2,24 +2,46 @@ h2{
     color: #21695c;
  }
 
- .services .card{
-    height: 350px;
-    border-radius: 5px;
-    width: 95%;
-    margin: auto;
-    background: #ffffff;
-    color: black;
-    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, .5);
-    border: 1px solid black;
-    transition: all 1s ease-in-out;
- }
+ .services .card {
+  height: 380px;
+  border-radius: 30px;
+  width: 95%;
+  margin: auto;
+  background: #ffffff;
+  background: #ff1e5e;
+  background: #505cc1;
+  color: white;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
 
- .services .card:hover{
-   background: linear-gradient(100deg, #26b7e7 29%, #61dd44 74%);;
-   color: white;
-  transform: translateY(-10px);
-   cursor: pointer;
- }
+  transition: transform 1s ease, background 1s ease, color 1s ease; /* 👈 Add this line */
+}
+
+.services .card .btn{
+  background: goldenrod;
+  color: white;
+}
+
+/* Smooth transition for <p> text color */
+.services .card .card-body p {
+  transition: color 0.8s ease;
+  color: #ffffff;
+}
+
+/* Hover Effects */
+.services .card:hover {
+  /* background: linear-gradient(100deg, #26b7e7 29%, #61dd44 74%); */
+  background: #6B8E23;
+  color: white;
+  transform: translateY(-20px);
+  cursor: pointer;
+}
+
+/* Paragraph text color on hover */
+.services .card:hover .card-body p {
+  color: white;
+}
+
 
  @media(max-width:571px){
    .services .card{
@@ -28,21 +50,21 @@ h2{
  }
 
  .services .card .card-body p{
-   color: black;
- }
+   color: white
+   }
 
 
 
  .service-banner{
-   background-image: linear-gradient(100deg, #26b7e7 29%, #61dd44 74%);
+   /* background-image: linear-gradient(100deg, #26b7e7 29%, #61dd44 74%); */
    width: 100%;
    height: 150px;
-   color: #ffffff;
+   color: blue;
    width: 80%;
    margin: auto;
    text-align: center;
  }
 
  .service-banner h3{
-  color: #ffffff;
+  color: green;
  }
