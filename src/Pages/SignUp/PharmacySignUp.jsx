@@ -2,116 +2,107 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function PharmacySignUp() {
-  const [formData, setFormData] = useState({
-    establishmentName: '',
-    yearEstablished: '',
+  const [form, setForm] = useState({
+    name: '',
+    ownername: '',
+    licenseNo: '',
     location: '',
+    type: '',
+    yearofestab: '',
     email: '',
-    mobile: '',
-    ownerName: '',
-    licenseNumber: '',
-    proofOfEstablishment: null,
-    pharmacyLicense: null,
+    mobileNo: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
 
+  const [pharmacyLicenseDoc, setPharmacyLicenseDoc] = useState(null);
+  const [proofOfEstablishment, setProofOfEstablishment] = useState(null);
+  const [plogin, setPlogin] = useState(false);
+
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === 'proofOfEstablishment' || name === 'pharmacyLicense') {
-      setFormData({ ...formData, [name]: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
+    if (!pharmacyLicenseDoc || !proofOfEstablishment) {
+      alert('Please upload both license and proof documents');
       return;
     }
 
-    const data = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      data.append(key, value);
+    const formData = new FormData();
+    Object.entries(form).forEach(([key, value]) => {
+      formData.append(key, value);
     });
+    formData.append('pharmacyLicenseDoc', pharmacyLicenseDoc);
+    formData.append('proofofEstablishment', proofOfEstablishment);
 
     try {
-      await axios.post('https://jsonplaceholder.typicode.com/posts', data); // replace with actual backend
-      alert('Pharmacy registered successfully!');
-      setFormData({
-        establishmentName: '',
-        yearEstablished: '',
-        location: '',
-        email: '',
-        mobile: '',
-        ownerName: '',
-        licenseNumber: '',
-        proofOfEstablishment: null,
-        pharmacyLicense: null,
-        password: '',
-        confirmPassword: ''
+      const response = await axios.post('http://localhost:8080/pharmacyapi/signup', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
+
+      alert('Pharmacy registered successfully!');
+      setPlogin(true);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Failed to register pharmacy');
+      console.error('Signup error:', error);
+      alert('Error during pharmacy signup.');
     }
   };
 
   return (
-    <div className="container mt-5 mb-5">
-      <h2 className="text-center mb-4">Pharmacy Registration</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <div className="row">
-          <div className="col-md-6 mb-3">
+    <div className="container my-5">
+      <div className="row">
+        <div className="col-10 offset-1 col-md-8 offset-md-2">
+          <form onSubmit={handleSubmit}>
+            <h2 className="text-center py-3">Pharmacy SignUp</h2>
+
             <label>Name of Establishment</label>
-            <input type="text" name="establishmentName" required className="form-control" value={formData.establishmentName} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Year of Establishment</label>
-            <input type="number" name="yearEstablished" required className="form-control" value={formData.yearEstablished} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Location</label>
-            <input type="text" name="location" required className="form-control" value={formData.location} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Email</label>
-            <input type="email" name="email" required className="form-control" value={formData.email} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Mobile Number</label>
-            <input type="text" name="mobile" required className="form-control" value={formData.mobile} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
+            <input type="text" name="name" required value={form.name} onChange={handleChange} className="form-control mb-2" />
+
             <label>Owner's Name</label>
-            <input type="text" name="ownerName" required className="form-control" value={formData.ownerName} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
+            <input type="text" name="ownername" required value={form.ownername} onChange={handleChange} className="form-control mb-2" />
+
             <label>Pharmacy License Number</label>
-            <input type="text" name="licenseNumber" required className="form-control" value={formData.licenseNumber} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Upload Pharmacy License</label>
-            <input type="file" name="pharmacyLicense" accept=".pdf,.jpg,.jpeg,.png" className="form-control" onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
-            <label>Upload Proof of Establishment</label>
-            <input type="file" name="proofOfEstablishment" accept=".pdf,.jpg,.jpeg,.png" className="form-control" onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
+            <input type="text" name="licenseNo" required value={form.licenseNo} onChange={handleChange} className="form-control mb-2" />
+
+            <label>Location</label>
+            <input type="text" name="location" required value={form.location} onChange={handleChange} className="form-control mb-2" />
+
+            <label>Service Type</label>
+            <select name="type" required value={form.type} onChange={handleChange} className="form-select mb-2">
+              <option value="">Select Service Type</option>
+              <option value="Whole Saler">Whole Saler</option>
+              <option value="Retail Shop">Retail Shop</option>
+              <option value="Retail and Home Delivery">Retail and Home Delivery</option>
+              <option value="In Store Pick Up">In Store Pick Up</option>
+            </select>
+
+            <label>Year of Establishment</label>
+            <input type="number" name="yearofestab" required value={form.yearofestab} onChange={handleChange} className="form-control mb-2" />
+
+            <label>Email</label>
+            <input type="email" name="email" required value={form.email} onChange={handleChange} className="form-control mb-2" />
+
+            <label>Mobile Number</label>
+            <input type="text" name="mobileNo" required value={form.mobileNo} onChange={handleChange} className="form-control mb-2" />
+
             <label>Password</label>
-            <input type="password" name="password" required className="form-control" value={formData.password} onChange={handleChange} />
-          </div>
-          <div className="col-md-6 mb-3">
+            <input type="password" name="password" required value={form.password} onChange={handleChange} className="form-control mb-2" />
+
             <label>Confirm Password</label>
-            <input type="password" name="confirmPassword" required className="form-control" value={formData.confirmPassword} onChange={handleChange} />
-          </div>
+            <input type="password" name="confirmPassword" required value={form.confirmPassword} onChange={handleChange} className="form-control mb-2" />
+
+            <label>Upload Pharmacy License</label>
+            <input type="file" accept="image/*,.pdf" required onChange={(e) => setPharmacyLicenseDoc(e.target.files[0])} className="form-control mb-2" />
+
+            <label>Upload Proof of Establishment</label>
+            <input type="file" accept="image/*,.pdf" required onChange={(e) => setProofOfEstablishment(e.target.files[0])} className="form-control mb-3" />
+
+            <button type="submit" className="btn btn-primary w-100">Submit</button>
+          </form>
         </div>
-        <button type="submit" className="btn btn-primary w-100">Register</button>
-      </form>
+      </div>
     </div>
   );
 }

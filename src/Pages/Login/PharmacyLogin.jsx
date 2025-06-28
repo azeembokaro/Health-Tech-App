@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Login.css"; // Your own CSS
 
 function PharmacyLogin() {
-  const [doctor_id, setDoctorid] = useState("");
+  const [pharmacyId, setPharmacyId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -14,8 +14,8 @@ function PharmacyLogin() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/doctorapi/doctorsignin", {
-        doctor_id,
+      const response = await axios.post("http://localhost:8080/pharmacyapi/signin", {
+        pharmacyId,
         password,
       });
 
@@ -34,7 +34,7 @@ function PharmacyLogin() {
         navigate("/services");
       }, 2500);
 
-      setDoctorid("");
+      setPharmacyId("");
       setPassword("");
     } catch (error) {
       console.error("Error in Login Form:", error);
@@ -63,20 +63,20 @@ function PharmacyLogin() {
                 <label htmlFor="user" className="mb-3">Pharmacy's Id</label>
                 <input
                   type="text"
-                  name="user"
-                  id="user"
-                  value={doctor_id}
+                  name="pharmacyId"
+                  id="pharmacyId"
+                  value={pharmacyId}
                   autoComplete="off"
                   placeholder="Enter Pharmacy's Id"
                   required
-                  onChange={(e) => setDoctorid(e.target.value)}
+                  onChange={(e) => setPharmacyId(e.target.value)}
                 />
 
                 <label htmlFor="pass" className="mb-3">Password</label>
                 <input
                   type="password"
-                  name="pass"
-                  id="pass"
+                  name="password"
+                  id="password"
                   value={password}
                   autoComplete="off"
                   placeholder="Enter Password"
