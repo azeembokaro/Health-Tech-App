@@ -36,10 +36,12 @@ function BuisnessLogin() {
       <div className="row">
         <div className="col-sm-8 offset-sm-2 my-sm-5 my-3 col-10 offset-1 outerForm">
           <form onSubmit={handleSubmit} className="form"> {/* ✅ Removed styles.form */}
-            <h2 className="text-center">Logged In For Business</h2>
+            <h2 className="text-center">
+              Business Login
+            </h2>
 
             <label htmlFor="buisness">
-              Select The Profile to LogI
+              Select Your Profile
             </label>
 
             <select

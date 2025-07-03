@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../Components/Header/Header";
+
 import Footer from "../../Components/Footer/Footer";
 import DoctorCard from "../../assets/images/doctor-card.png";
 import ConsultExpert from "../../assets/images/consult-expert.png";
@@ -18,7 +18,7 @@ function Services() {
   const { patient_id } = usePatient(); // ✅ Get patient_id from context
   return (
     <div>
-      <Header />
+      
 
       <div class="service-banner align-items-center justify-content-center my-sm-3 my-2 py-sm-4 py-2">
         <h3 className="text-center pt-3 pb-1">
@@ -39,14 +39,11 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={DoctorCard} className="card-img-top" alt="..." />
               <div className="card-body">
-                <p className="card-title">One To One With Doctor</p>
+                <h6 className=" text-center card-title ">Exclusive 1 to 1 Free Digital Consultation</h6>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Officiis deleniti nesciunt deserunt distinctio, facere ad
-                  beatae ullam animi molestiae alias iure eum harum ipsum quod
-                  sequi
+                 Report your medical conditions, assisted by AI for Free Digital Consultatiom by our platform doctors in matters of secounds.
                 </p>
-                <Link to="/DoctorOneTwoOne" className="btn btn-primary mb-3">
+                <Link to="/DoctorOneTwoOne" className="btn btn-primary w-sm-25 w-75 mx-auto my-3">
                   Avail Service
                 </Link>
               </div>
@@ -57,13 +54,11 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={MedicalRecord} className="card-img-top" alt="..." />
               <div className="card-body">
-                <p className="card-title">Persistant Queue</p>
+                <h6 className=" text-center card-title">Free Consultation </h6>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-                  incidunt repellat excepturi, deserunt eum commodi consequatur
-                  accusamus pariatur expedita illum molestiae laborum inventore{" "}
+                  Get in touch with Expert Consultant Doctors for Medical Ailments, 2nd Opinion or Expert Advice within 24-48 hours, ABSOLUTELY FREE.{" "}
                 </p>
-                <Link to="/persistant_queue" className="btn  w-50 mx-auto mb-3">
+                <Link to="/persistant_queue" className="btn  w-sm-25 w-75 mx-auto my-3">
                   Avail Service
                 </Link>
               </div>
@@ -74,13 +69,11 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={MedicalInfo} className="card-img-top" alt="..." />
               <div className="card-body">
-                <p className="card-title">Patient Dashboard</p>
+                <h6 className=" text-center card-title">Health Dashboard</h6>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-                  vitae obcaecati quaerat architecto totam officia, excepturi,
-                  aliquam commodi repellat enim aliquid aperiam ducimus,
+                  View, Trace and Track all your Digital Prescriptions, Medical Cases, Medical Reports, Doctors Notifications, Health Statistics etc
                 </p>
-                <Link to="/patient_dashboard" className="btn w-50 mx-auto mb-3">
+                <Link to="/patient_dashboard" className="btn w-sm-50 w-75 mx-auto my-3">
                   Avail Service
                 </Link>
               </div>
@@ -93,14 +86,14 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={ConsultExpert} className="card-img-top" alt="..." />
               <div className="card-body">
-                <p className="card-title">Consult With Expert</p>
+                <h6 className=" text-center card-title">Consult With Expert</h6>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Tempora nam possimus quis quibusdam vel tempore recusandae
                   explicabo assumenda vitae repellendus! Nemo quaerat corporis
                   excepturi
                 </p>
-                <Link to="/ask_expert" className="btn w-50 mx-auto mb-3">
+                <Link to="/ask_expert" className="btn w-sm-50 w-75 mx-auto my-3">
                   Avail Service
                 </Link>
               </div>
@@ -111,13 +104,13 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={HealthcareService} className="card-img-top" alt="..." />
               <div className="card-body">
-                <p className="card-title">Find Healthcare Service</p>
+                <h6 className=" text-center card-title">Find Healthcare Service</h6>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
                   dolorem corrupti quasi ab voluptates sapiente numquam tempore,
                   aspernatur, rem quo consectetur temporibus adipisci
                 </p>
-                <a href="#" className="btn w-50 mx-auto mb-3">
+                <a href="#" className="btn w-sm-50 w-75 mx-auto my-3">
                   Avail Service
                 </a>
               </div>
@@ -128,13 +121,13 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={HealthcareService} className="card-img-top" alt="..." />
               <div className="card-body">
-                <p className="card-title">Find Healthcare Service</p>
+                <h6 className=" text-center card-title">Find Healthcare Service</h6>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
                   dolorem corrupti quasi ab voluptates sapiente numquam tempore,
                   aspernatur, rem quo consectetur temporibus adipisci
                 </p>
-                <a href="#" className="btn w-50 mx-auto mb-3">
+                <a href="#" className="btn w-sm-50 w-75 mx-auto my-3">
                   Avail Service
                 </a>
               </div>

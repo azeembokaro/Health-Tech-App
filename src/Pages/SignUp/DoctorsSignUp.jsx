@@ -79,19 +79,22 @@ function DoctorSignUp() {
         <div className="row mb-3">
 
             <div className="col-md-6">
-            <label className="form-label">Join In as</label>
-            <select
-              name="typeDoc"
-              className="form-select"
-              value={form.typeDoc}
-              onChange={handleChange}
-              required
-            >
-              <option value="Employee">Employee</option>
-              <option value="Consultant Doctor">Consultant Doctor</option>
-             
-            </select>
-          </div>
+  <label className="form-label">Join In as</label>
+  <select
+    name="typeDoc"
+    className="form-select"
+    value={form.typeDoc}
+    onChange={handleChange}
+    required
+  >
+    <option value="" disabled hidden>
+      Join In As
+    </option>
+    <option value="Employee">Employee</option>
+    <option value="Consultant Doctor">Consultant Doctor</option>
+  </select>
+</div>
+
           
           <div className="col-md-6">
             <label className="form-label">Full Name</label>
@@ -208,19 +211,22 @@ function DoctorSignUp() {
           </div>
         </div>
 
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <label className="form-label">Upload Certificate</label>
-            <input
-              type="file"
-              name="Certificate_image"
-              className="form-control"
-              accept="image/*"
-              onChange={handleFileChange}
-             
-            />
-          </div>
-        </div>
+       <div className="row mb-4">
+  <div className="col-md-6">
+     <small className="text-muted fw-bold">Upload Proof of Medical Practice</small>
+    <label className="form-label">Upload Certificate</label>
+   
+    <input
+      type="file"
+      name="Certificate_image"
+      className="form-control"
+      accept="image/*"
+      onChange={handleFileChange}
+    />
+    
+  </div>
+</div>
+
 
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">

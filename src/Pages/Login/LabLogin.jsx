@@ -63,7 +63,7 @@ function LabLogin() {
             <form onSubmit={handleSubmit} className="login p-sm-5 p-3">
               <h3 className="text-center">Lab Login</h3>
 
-              <label htmlFor="username" className="mb-2">Lab ID (Username)</label>
+              <label htmlFor="username" className="mb-2">Enter Your Diagnostics Lab Id</label>
               <input
                 type="text"
                 id="username"
@@ -74,7 +74,7 @@ function LabLogin() {
                 onChange={(e) => setUsername(e.target.value)}
               />
 
-              <label htmlFor="password" className="mt-3 mb-2">Password</label>
+              <label htmlFor="password" className="mt-3 mb-2">Enter Your Password</label>
               <input
                 type="password"
                 id="password"
