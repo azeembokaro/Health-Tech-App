@@ -9,7 +9,7 @@ h2{
   margin: auto;
   background: #ffffff;
   background: #ff1e5e;
-  background: #505cc1;
+  background: #172c40;
   color: white;
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
   border: 1px solid black;
@@ -40,6 +40,15 @@ h2{
 /* Paragraph text color on hover */
 .services .card:hover .card-body p {
   color: white;
+  font-weight: 300!important;
+}
+
+.card p{
+  font-weight: 300!important;
+}
+
+.card h5{
+  font-weight: 500;
 }
 
 
@@ -53,6 +62,9 @@ h2{
    color: white
    }
 
+   .card-title{
+    font-weight: 500!important;
+   }
 
 
  .service-banner{

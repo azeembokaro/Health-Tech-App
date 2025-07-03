@@ -66,7 +66,7 @@ function DoctorLogin() {
  <form onSubmit={handleSubmit}  className="login p-sm-5 p-3">
                 <h3 className="text-center">Doctor Login</h3>
 
-                <label htmlFor="user" className="mb-3">Doctor's Id</label>
+                <label htmlFor="user" className="mb-3">Enter Your Doctor's Id</label>
                 <input
                   type="text"
                   name="user"
@@ -78,7 +78,7 @@ function DoctorLogin() {
                   onChange={(e) => setDoctorid(e.target.value)}
                 />
 
-                <label htmlFor="pass" className="mb-3">Password</label>
+                <label htmlFor="pass" className="mb-3">Enter Your Password</label>
                 <input
                   type="password"
                   name="pass"

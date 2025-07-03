@@ -54,100 +54,135 @@ function SignUp() {
   return (
     <div className="container my-5 signup-info">
       <div className="row">
-        <div className="col-sm-6 offset-sm-3 col-10 offset-1 my-sm-5 my-3 outer-form">
-          <form onSubmit={handleSubmit} className="signup-form">
-            <h4 className="signup-heading">SignUp As Patient</h4>
+       
+          <form onSubmit={handleSubmit} className="signup-form p-4 border rounded shadow-sm">
+  <h2 className="text-center mb-4">SignUp As Patient</h2>
 
-            <label htmlFor="fname">First Name</label>
-            <input
-              type="text"
-              name="fname"
-              id="fname"
-              value={form.fname}
-              onChange={handleChange}
-              required
-            />
+  {/* Row 1: First Name & Last Name */}
+  <div className="row">
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="fname"  className="pb-2">First Name</label>
+      <input
+        type="text"
+        name="fname"
+        id="fname"
+        value={form.fname}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="lname"  className="pb-2">Last Name</label>
+      <input
+        type="text"
+        name="lname"
+        id="lname"
+        value={form.lname}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+  </div>
 
-            <label htmlFor="lname">Last Name</label>
-            <input
-              type="text"
-              name="lname"
-              id="lname"
-              value={form.lname}
-              onChange={handleChange}
-              required
-            />
+  {/* Row 2: Email & Mobile */}
+  <div className="row">
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="email_id"  className="pb-2">Email</label>
+      <input
+        type="email"
+        name="email_id"
+        id="email_id"
+        value={form.email_id}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="mobileNo"  className="pb-2">Mobile No</label>
+      <input
+        type="text"
+        name="mobileNo"
+        id="mobileNo"
+        value={form.mobileNo}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+  </div>
 
-            <label htmlFor="email_id">Email</label>
-            <input
-              type="email"
-              name="email_id"
-              id="email_id"
-              value={form.email_id}
-              onChange={handleChange}
-              required
-            />
+  {/* Row 3: Gender & DOB */}
+  <div className="row">
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="gender"  className="pb-2">Gender</label>
+      <select
+        name="gender"
+        id="gender"
+        value={form.gender}
+        onChange={handleChange}
+        required
+        className="form-control"
+      >
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="dob"  className="pb-2">Date of Birth</label>
+      <input
+        type="date"
+        name="dob"
+        id="dob"
+        value={form.dob}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+  </div>
 
-            <label htmlFor="mobileNo">Mobile No</label>
-            <input
-              type="text"
-              name="mobileNo"
-              id="mobileNo"
-              value={form.mobileNo}
-              onChange={handleChange}
-              required
-            />
+  {/* Row 4: Password & Confirm Password */}
+  <div className="row">
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="password"  className="pb-2">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        value={form.password}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+    <div className="col-sm-6 mb-3">
+      <label htmlFor="confirmPassword" className="pb-2">Confirm Password</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        id="confirmPassword"
+        value={form.confirmPassword}
+        onChange={handleChange}
+        required
+        className="form-control"
+      />
+    </div>
+  </div>
 
-            <label htmlFor="gender">Gender</label>
-            <select
-              name="gender"
-              id="gender"
-              value={form.gender}
-              onChange={handleChange}
-              required
-            >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
+  <div className="text-center">
+    <button type="submit" className="btn btn-primary w-50">
+      Submit
+    </button>
+  </div>
+</form>
 
-            <label htmlFor="dob">Date of Birth</label>
-            <input
-              type="date"
-              name="dob"
-              id="dob"
-              value={form.dob}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="password">Enter Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              value={form.password}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              value={form.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-
-            <button type="submit" className="btn btn-primary w-sm-50 w-75 mx-auto">
-              Submit
-            </button>
-          </form>
         </div>
       </div>
-    </div>
-  );
+   
+  )
 }
 
 export default SignUp;

@@ -31,6 +31,16 @@ background: #21695c;
 /* border-radius: 30px; */
  }
 
+ #secound_hero_card{
+   margin-left: 20%;
+ }
+
+ @media(max-width:571px){
+   #secound_hero_card{
+   margin-left: 10%;
+ }
+ }
+
  .services .card a{
     display: block;
     width: 50%;
@@ -62,9 +72,9 @@ background: #21695c;
     border-width: 0;
     border-color: #21695c;
     color:white;
-    font-weight: 500;
-    height: 60px;
-    font-size: 20px;
+    font-weight: 600;
+    height: 50px;
+    font-size: 17px;
  }
 
  @media(max-width:571px){
@@ -145,6 +155,13 @@ background: #21695c;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
  }
 
+ @media(max-width:571px){
+   .hero-list li{
+      width: 95%;
+      margin: auto;
+   }
+ }
+
  .icon-bg {
   /* background-color: green; */
   color: white;                 /* Makes the tick symbol white */
@@ -156,4 +173,18 @@ background: #21695c;
   justify-content: center;
   width: 32px;                  /* Fixed width & height for circle */
   height: 32px;
+}
+
+.hero-button{
+   width:20%;
+   border-radius: 5px;
+   background: #14af97;
+   color: white;
+}
+
+@media(max-width:571px){
+   .hero-button{
+      width: 90%;
+      margin: auto;
+   }
 }

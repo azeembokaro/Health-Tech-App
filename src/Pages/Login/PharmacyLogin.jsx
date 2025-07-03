@@ -64,7 +64,7 @@ function PharmacyLogin() {
 <form onSubmit={handleSubmit} className="login p-sm-5 p-3">
                 <h3 className="text-center">Pharmacy Login</h3>
 
-                <label htmlFor="user" className="mb-3">Pharmacy's Id</label>
+                <label htmlFor="user" className="mb-3">Enter Your Pharmacy's Id</label>
                 <input
                   type="text"
                   name="pharmacyId"
@@ -76,7 +76,7 @@ function PharmacyLogin() {
                   onChange={(e) => setPharmacy_Id(e.target.value)}
                 />
 
-                <label htmlFor="pass" className="mb-3">Password</label>
+                <label htmlFor="pass" className="mb-3">Enter Your Password</label>
                 <input
                   type="password"
                   name="password"

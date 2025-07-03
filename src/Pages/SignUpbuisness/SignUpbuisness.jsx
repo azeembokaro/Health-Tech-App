@@ -40,7 +40,7 @@ function SignUpBuisness({ buisnesssignup, onCloseSignup }) {
             <h2 className="text-center">SignUp For Business</h2>
 
             <label htmlFor="buisness">
-              Choose Your Business, Want To Join As
+              Choose Your Business Profile To Be Part Of WeCare Platform
             </label>
 
             <select
