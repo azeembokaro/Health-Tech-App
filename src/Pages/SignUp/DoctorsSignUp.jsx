@@ -3,13 +3,15 @@ import axios from "axios";
 
 function DoctorSignUp() {
   const [form, setForm] = useState({
+    typeDoc: "",
     name: "",
     mobileNo: "",
     email_id: "",
     Qualification: "",
     experience: "",
     practionerId: "",
-    Speciality: "Cardiology",
+    Speciality: "",
+
     Certificate_image: null,
     password: ""
   });
@@ -50,6 +52,7 @@ function DoctorSignUp() {
       console.log("Success:", response.data);
 
       setForm({
+        typeDoc:"",
         name: "",
         mobileNo: "",
         email_id: "",
@@ -74,6 +77,22 @@ function DoctorSignUp() {
         <h2 className="text-center mb-4">Doctor SignUp</h2>
 
         <div className="row mb-3">
+
+            <div className="col-md-6">
+            <label className="form-label">Join In as</label>
+            <select
+              name="typeDoc"
+              className="form-select"
+              value={form.typeDoc}
+              onChange={handleChange}
+              required
+            >
+              <option value="Employee">Employee</option>
+              <option value="Consultant Doctor">Consultant Doctor</option>
+             
+            </select>
+          </div>
+          
           <div className="col-md-6">
             <label className="form-label">Full Name</label>
             <input
@@ -158,6 +177,7 @@ function DoctorSignUp() {
               <option value="Psychology">Psychology</option>
             </select>
           </div>
+
         </div>
 
         <div className="row mb-3">

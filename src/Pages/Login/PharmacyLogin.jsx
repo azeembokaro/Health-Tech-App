@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css"; // Your own CSS
+import {usePharmacy } from '../../PharmacyContext'
 
 function PharmacyLogin() {
-  const [pharmacyId, setPharmacyId] = useState("");
+  const { setPharmacyId } = usePharmacy()
+  const [pharmacyId, setPharmacy_Id] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -31,11 +33,12 @@ function PharmacyLogin() {
       });
 
       setTimeout(() => {
-        navigate("/services");
+        navigate("/pharmacy_profile");
       }, 2500);
 
-      setPharmacyId("");
-      setPassword("");
+      // setPharmacyId("");
+      // setPassword("");
+      setPharmacyId(response.data.pharmacyId)
       navigate('/pharmacy_profile')
     } catch (error) {
       console.error("Error in Login Form:", error);
@@ -70,7 +73,7 @@ function PharmacyLogin() {
                   autoComplete="off"
                   placeholder="Enter Pharmacy's Id"
                   required
-                  onChange={(e) => setPharmacyId(e.target.value)}
+                  onChange={(e) => setPharmacy_Id(e.target.value)}
                 />
 
                 <label htmlFor="pass" className="mb-3">Password</label>

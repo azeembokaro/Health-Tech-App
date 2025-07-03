@@ -31,7 +31,7 @@
 .navigation_wrap .navbar-brand{
     color: #000000;
     font-weight: 600;
-    font-size: 23px;
+    font-size: 29px;
     line-height: 23px;
     color: #14af97;
 }
@@ -117,4 +117,8 @@
     text-align: center;
     
     border: 1px solid #21695c;
+}
+
+.navbar-brand:focus, .navbar-brand:hover{
+    color: #14af97;
 }

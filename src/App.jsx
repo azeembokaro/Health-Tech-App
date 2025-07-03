@@ -21,6 +21,7 @@ import DoctorOneTwoOne from "./Pages/DoctorOneTwoOne/DoctorOneTwoOne";
 
 import DoctorsProfile from "./Pages/DoctorsProfile/DoctorsProfile";
 import PharmacyProfile from "./Pages/PharmacyProfile/PharmacyProfile";
+import LabProfile from  "./Pages/LabProfile/LabProfile"
 
 import DigitalConsultation from "./Pages/ConsultationMenu/DigitalConsultation";
 import DashboardMenu from "./Pages/DashboardMenu/DashboardMenu";
@@ -33,6 +34,10 @@ import { DoctorProvider } from "./DoctorContext";
 
 import { PrescriptionProvider } from "./PrescriptionContext";
 
+import {PharmacyProvider } from "./PharmacyContext"
+
+import { LabProvider } from "./LabContext"
+
 import PersistantQueue from "./Pages/PersistantQueue/PersistantQueue"
 
 function App() {
@@ -41,7 +46,9 @@ function App() {
       <PatientProvider>
         <DoctorProvider>
           <PrescriptionProvider>
-            <Router>
+            <PharmacyProvider>
+             <LabProvider>
+ <Router>
               {/* <Header /> */}
               <main>
                 <Routes>
@@ -74,14 +81,19 @@ function App() {
                     element={<PharmacyProfile/>}
                   />
 
+                    <Route
+                    path="/patient_dashboard/*"
+                    element={<DashboardMenu/>}
+                  />
+
                   <Route
                     path="/digital_consultation/*"
                     element={<DigitalConsultation />}
                   />
 
                    <Route
-                    path="/patient_dashboard/*"
-                    element={<DashboardMenu />}
+                    path="/lab_profile/*"
+                    element={<LabProfile />}
                   />
 
 
@@ -97,6 +109,12 @@ function App() {
                 </Routes>
               </main>
             </Router>
+
+             </LabProvider>
+
+              
+            </PharmacyProvider>
+           
           </PrescriptionProvider>
         </DoctorProvider>
       </PatientProvider>

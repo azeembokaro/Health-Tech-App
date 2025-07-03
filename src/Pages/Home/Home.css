@@ -126,3 +126,34 @@ background: #21695c;
     margin: auto;
     height: 300px;
  }
+
+ .intro_para{
+   line-height: 27px;
+ }
+
+ .hero-list li{
+   
+    color: #0f1620;
+    border: 1px solid #faebee;
+    border-radius: 14px;
+    justify-content: flex-start;
+    align-items: center;
+   font-size: 17px;
+   line-height: 23px;
+   width: 80%;
+   margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+ }
+
+ .icon-bg {
+  /* background-color: green; */
+  color: white;                 /* Makes the tick symbol white */
+  border-radius: 50%;          
+  padding: 6px;
+  font-size: 1.2rem;
+  display: inline-flex;         /* inline-flex avoids blocky look */
+  align-items: center;
+  justify-content: center;
+  width: 32px;                  /* Fixed width & height for circle */
+  height: 32px;
+}

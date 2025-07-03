@@ -20,6 +20,7 @@ const DashboardMenu = () => {
         
              <Routes>
           <Route path="my_cases" element={<MyCases />} />
+          
           <Route path="my_diagnostic_report" element={<MyDiagnosticReport />} />
           <Route path="my_prescribed_medicine" element={<MyPrescribedMedicine />} />
           <Route path="my_doc_alerts" element={<MyDocAlerts/>} />

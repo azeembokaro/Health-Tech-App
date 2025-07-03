@@ -3,46 +3,50 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Login.css"; // Your own CSS
+import "./Login.css";
+import { useLab } from '../../LabContext'
 
 function LabLogin() {
-  const [doctor_id, setDoctorid] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { setdiagnosticsId } = useLab()
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8080/doctorapi/doctorsignin", {
-        doctor_id,
+      const response = await axios.post("http://localhost:8080/labapi/signin", {
+       username,
         password,
       });
 
-      console.log("Response:", response.data);
-      toast.success("Logged in successfully", {
+      console.log("Login Success:", response.data);
+      toast.success("Logged in successfully!", {
         position: "top-right",
         autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
         pauseOnHover: false,
         draggable: true,
         theme: "light",
       });
 
+      setdiagnosticsId(username);
+
       setTimeout(() => {
-        navigate("/services");
+        navigate("/lab_profile"); // Or your desired lab dashboard route
       }, 2500);
 
-      setDoctorid("");
+
+
+      // Clear inputs
+      setUsername("");
       setPassword("");
+      
     } catch (error) {
-      console.error("Error in Login Form:", error);
-      toast.error("Login failed! Please check your credentials.", {
+      console.error("Login Error:", error);
+      toast.error("Login failed! Please check credentials.", {
         position: "top-right",
         autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
         pauseOnHover: false,
         draggable: true,
         theme: "light",
@@ -53,48 +57,41 @@ function LabLogin() {
   return (
     <>
       <ToastContainer />
+      <div className="container mt-sm-5 mt-3">
+        <div className="row">
+          <div className="col-sm-6 col-10 offset-sm-3 offset-1">
+            <form onSubmit={handleSubmit} className="login p-sm-5 p-3">
+              <h3 className="text-center">Lab Login</h3>
 
+              <label htmlFor="username" className="mb-2">Lab ID (Username)</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={username}
+                placeholder="Enter Lab Username"
+                required
+                onChange={(e) => setUsername(e.target.value)}
+              />
 
-      <div class="container mt-sm-5 mt-3">
-        <div class="row">
-          <div class="col-sm-6 col-8 offset-sm-3 offset-2">
- <form onSubmit={handleSubmit} className="login p-sm-5 p-3">
-                <h3 className="text-center">Lab Login</h3>
+              <label htmlFor="password" className="mt-3 mb-2">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                placeholder="Enter Password"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-                <label htmlFor="user" className="mb-3">Lab's Id</label>
-                <input
-                  type="text"
-                  name="user"
-                  id="user"
-                  value={doctor_id}
-                  autoComplete="off"
-                  placeholder="Enter Lab's Id"
-                  required
-                  onChange={(e) => setDoctorid(e.target.value)}
-                />
-
-                <label htmlFor="pass" className="mb-3">Password</label>
-                <input
-                  type="password"
-                  name="pass"
-                  id="pass"
-                  value={password}
-                  autoComplete="off"
-                  placeholder="Enter Password"
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-
-               
-                <div className="my-sm-4 my-2 text-center">
- <button type="submit" className="btn btn-lg btn-primary text-center w-75">Login</button>
-      </div>
-              </form>
+              <div className="text-center mt-4">
+                <button type="submit" className="btn btn-primary w-75">Login</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-       
-      
     </>
   );
 }

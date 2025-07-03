@@ -1,53 +1,78 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Header from '../../Components/Header/Header';
-import Footer from '../../Components/Footer/Footer';
-import HomeImg from '../../assets/images/home-img.png';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import HomeImg from "../../assets/images/home-img.png";
 import { IoPerson } from "react-icons/io5";
 import { RiHealthBookLine } from "react-icons/ri";
-
-import './Home.css';
+import "animate.css";
+import "./Home.css";
 
 function Home() {
   const navigate = useNavigate();
 
   // Function to redirect to business signup
   const handleBusinessSignup = () => {
-    navigate('/buisnesssignup');
+    navigate("/buisnesssignup");
   };
 
   // Optional: Add a similar function for patient signup
   const handlePatientSignup = () => {
-    navigate('/signuppatient'); // Only if you create this route
+    navigate("/signuppatient"); // Only if you create this route
   };
 
   return (
     <div>
       <Header />
 
-      <div className="container my-sm-5 my-3">
+      <div className="container-fluid my-sm-5 my-3 ">
         <div className="row align-items-center">
-          <div className="col-sm-7 col-10 offset-sm-0 offset-1 text-center">
-            <h2 className="py-sm-5 py-3" id = "hero-heading">
+          <div className="col-sm-7 col-10 offset-sm-0 offset-1 text-center animate__animated animate__backInDown animate__slower animate__delay-.8s">
+            <h2 className="text-center" id="hero-heading">
               Welcome to AI powered health tech revolution
             </h2>
-            <p className="text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur odio eligendi incidunt quae molestias quos minus. Possimus quo amet vel sit maiores. Quaerat culpa accusamus exercitationem quo, rem enim corporis doloribus iure esse, earum iusto numquam magni magnam ex ipsa, autem pariatur optio incidunt! Saepe praesentium fugit eius voluptatum illum?
-            </p>
+            <ul className="hero-list">
+              <li className="my-sm-3 my-2 p-3 d-flex align-items-center ">
+                <i class="bi bi-check-lg icon-bg"></i>
+                <span>
+                  The only Health-tech platform which gives unlimited & absolutely FREE ONLINE
+                  Digital Consultation, Medical Advice and Opinions. Complete
+                  Digitilization of medical records with tracing and tracking of
+                  all medical lifecycle events captured.
+                </span>
+              </li>
+              <li className="my-sm-3 my-2 p-3 d-flex align-items-center ms-sm-5">
+                <i className="bi bi-check-circle-fill icon-bg me-3"></i>
+                <span>
+                  Use of Artificial Intelligence to help patients as well as
+                  platform doctors for efficient medical process, reporting and
+                  treatment.
+                </span>
+              </li>
+              <li className="my-sm-3 my-2 p-3 d-flex align-items-center me-sm-5">
+                <i className="bi bi-check-circle-fill icon-bg me-3"></i>
+                <span>
+                  The only Health-tech platform which seamlessly integrates all
+                  stakeholders in medical care, i.e Patients, Doctors, Pharmacy, Diagnostics lab etc
+                  under 1 integrated digital umbrella.
+                </span>
+              </li>
+            </ul>
 
-            <div className="sign-up py-sm-5 py-3 d-sm-flex justify-content-sm-between align-items-center">
+            <div className="sign-up py-3 d-sm-flex justify-content-sm-between align-items-center">
               <button
                 className="d-sm-inline-block w-sm-50 w-100"
                 onClick={handlePatientSignup}
               >
-                SignUp as a Patient <IoPerson className='ms-3' size={28}/>
+                SignUp as a Patient <IoPerson className="ms-3" size={28} />
               </button>
 
               <button
                 className="d-inline-block w-sm-50 w-100 ms-sm-3 mt-sm-0 mt-3"
                 onClick={handleBusinessSignup}
               >
-                SignUp for Business Entity <RiHealthBookLine className='ms-3' size = {28}/>
+                SignUp for Business Entity{" "}
+                <RiHealthBookLine className="ms-3" size={28} />
               </button>
             </div>
           </div>

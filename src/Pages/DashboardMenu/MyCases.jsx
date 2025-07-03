@@ -4,131 +4,114 @@ import { usePatient } from "../../PatientContext";
 import './DashboardMenu.css'
 
 const MyCases = () => {
-  const { patient_id } = usePatient(); // ✅ use context
+  const { patient_id } = usePatient();
   const [prescriptions, setPrescriptions] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    const fetchPrescriptions = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/api/viewmyprescriptions`,
-          { params: { patientid: patient_id } } // ✅ use patient_id
-        );
-        setPrescriptions(response.data);
-      } catch (err) {
-        console.error("Error fetching prescriptions:", err);
-        setError("Failed to fetch prescriptions.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (patient_id) {
-      fetchPrescriptions();
-    } else {
-      setLoading(false);
-      setError("Patient ID is required.");
-    }
+    if (!patient_id) return;
+    axios
+      .get("http://localhost:8080/api/viewmyprescriptions", {
+        params: { patientid: patient_id },
+      })
+      .then((res) => setPrescriptions(res.data))
+      .catch((err) => console.error("Error fetching prescriptions:", err));
   }, [patient_id]);
 
-  const formatList = (list, fields) => {
-    if (!list || list.length === 0) return <em>None</em>;
-    return (
-      <ul>
-        {list.map((item, index) => (
-          <li key={index}>
-            {fields.map(
-              (f) =>
-                item[f] && (
-                  <div key={f}>
-                    <strong>{f}:</strong> {item[f]}
-                  </div>
-                )
-            )}
-          </li>
-        ))}
-      </ul>
-    );
+  const handleClick = (prescription) => {
+    setSelected(prescription);
   };
 
   return (
-    <div className="container mt-4 ">
-      <h3 className="text-center mb-4 text-primary">My Digital Prescriptions</h3>
+    <div className="container mt-4">
+      <h3 className="text-primary text-center mb-4">My Digital Prescriptions</h3>
 
-      {loading && <p>Loading prescriptions...</p>}
-      {error && <div className="alert alert-danger">{error}</div>}
-
-      {prescriptions.length === 0 && !loading && !error && (
-        <p className="text-center">No prescriptions found.</p>
-      )}
-
-      {prescriptions.map((presc, index) => (
-        <div className="card mb-4 wrapper_card" key={index}>
-          <div className="card-header text-center">
-            <strong>Prescription ID:</strong> {presc.digitalPrescptionID}
+      <div className="row">
+        {prescriptions.map((p, index) => (
+          <div className="col-md-4 mb-3" key={index}>
+            <div
+              className={`card shadow p-3 text-center ${selected?.digitalPrescptionID === p.digitalPrescptionID ? 'border-primary border-2' : ''}`}
+              style={{ cursor: "pointer" }}
+              onClick={() => handleClick(p)}
+            >
+              <h5>Prescription ID</h5>
+              <p className="fw-bold">{p.digitalPrescptionID}</p>
+            </div>
           </div>
-          <div className="card-body">
-            <p>
-              <strong>Patient Log:</strong> {presc.patientLog}
-            </p>
+        ))}
+      </div>
 
-            <h6>Symptoms:</h6>
-            {formatList(presc.sym, [
-              "conditionName",
-              "from",
-              "to",
-              "addtionalNote",
-            ])}
-
-            <h6>Diagnostic Tests:</h6>
-            {formatList(presc.tests, [
-              "type",
-              "subtype",
-              "methodOrOrgan",
-              "instructions",
-              "comment",
-            ])}
-
-            <h6>Prescribed Medicines:</h6>
-            {formatList(presc.prescripedMedicine, [
-              "name",
-              "type",
-              "fromDate",
-              "endDate",
-              "frequency",
-              "comments",
-            ])}
-
-            <h6>Treatment Plan:</h6>
-            {formatList(presc.plan, ["plan", "duration", "note"])}{" "}
-            {/* Update field names if needed */}
-
-            <h6>Recommendations:</h6>
-            {presc.recommendations && presc.recommendations.length > 0 ? (
-              presc.recommendations.map((rec, i) => (
-                <div key={i}>
-                  <p>
-                    <strong>Pharmacies:</strong>{" "}
-                    {rec.pharamacyIds?.join(", ") || "None"}
-                  </p>
-                  <p>
-                    <strong>Diagnostics Labs:</strong>{" "}
-                    {rec.diagnosticsLabIds?.join(", ") || "None"}
-                  </p>
-                  <p>
-                    <strong>Hospitals:</strong>{" "}
-                    {rec.hospitalIds?.join(", ") || "None"}
-                  </p>
-                </div>
-              ))
-            ) : (
-              <em>No recommendations</em>
-            )}
-          </div>
+      {selected && (
+        <div className="mt-5">
+          <h4 className="text-center text-success mb-4">Prescription Details</h4>
+          <table className="prescription-table">
+            <tbody>
+              <tr>
+                <th>Patient Log</th>
+                <td>{selected.patientLog}</td>
+              </tr>
+              <tr>
+                <th>Symptoms</th>
+                <td>
+                  {selected.sym ? (
+                    selected.sym.map((s, i) => (
+                      <div key={i}>
+                        {s.conditionName} ({s.from} to {s.to})
+                      </div>
+                    ))
+                  ) : (
+                    <em>None</em>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th>Diagnostic Tests</th>
+                <td>
+                  {selected.tests ? (
+                    selected.tests.map((t, i) => (
+                      <div key={i}>
+                        {t.type} - {t.subtype} {t.methodOrOrgan && `(${t.methodOrOrgan})`}
+                      </div>
+                    ))
+                  ) : (
+                    <em>None</em>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th>Medicines</th>
+                <td>
+                  {selected.prescripedMedicine ? (
+                    selected.prescripedMedicine.map((m, i) => (
+                      <div key={i}>
+                        {m.name} ({m.frequency}, {m.fromDate} to {m.endDate})
+                      </div>
+                    ))
+                  ) : (
+                    <em>None</em>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th>Recommendations</th>
+                <td>
+                  {selected.recommendations ? (
+                    selected.recommendations.map((r, i) => (
+                      <div key={i}>
+                        <p><strong>Pharmacies:</strong> {r.pharamacyIds?.join(", ") || "None"}</p>
+                        <p><strong>Labs:</strong> {r.diagnosticsLabIds?.join(", ") || "None"}</p>
+                        <p><strong>Hospitals:</strong> {r.hospitalIds?.join(", ") || "None"}</p>
+                      </div>
+                    ))
+                  ) : (
+                    <em>None</em>
+                  )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      ))}
+      )}
     </div>
   );
 };

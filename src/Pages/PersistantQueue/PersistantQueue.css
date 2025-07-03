@@ -75,3 +75,17 @@
   margin: 5px;
   font-size: 14px;
 }
+
+
+.form-control, .form-select{
+  font-weight: 300;
+}
+
+ 
+
+.conditions{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  border-radius: 30px;
+  border: 1px solid gray;
+}
+
