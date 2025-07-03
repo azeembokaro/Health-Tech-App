@@ -87,23 +87,24 @@ function PersistantQueue() {
 
   return (
     <div className="container my-5">
-      <h2 className="text-center text-primary mb-4">Describe Your Medical Query</h2>
-      <h3 className="text-center py-2">Patient ID is {patient_id}</h3>
+      <h3 className="text-center text-primary my-3">
+        Input Your Medical Conditions And Get Consulted By Esteemed Doctors
+      </h3>
+      
 
       {/* Query Type */}
-      <div className="mb-4">
-        <label className="form-label fw-bold">Select Query Type</label>
-        <select
-          className="form-select mny-select"
-          value={queryType}
-          onChange={(e) => setQueryType(e.target.value)}
-        >
-          <option value="">-- Select --</option>
-          {QueryTypes.map((type, i) => (
-            <option key={i} value={type}>{type}</option>
-          ))}
-        </select>
-      </div>
+
+     <select
+  className="form-select mny-select my-5"
+  value={queryType}
+  onChange={(e) => setQueryType(e.target.value)}
+>
+  <option value="" disabled hidden>Select Query Type</option>
+  {QueryTypes.map((type, i) => (
+    <option key={i} value={type}>{type}</option>
+  ))}
+</select>
+
 
       {/* Condition Blocks */}
       {conditions.map((entry, idx) => (
@@ -196,10 +197,10 @@ function PersistantQueue() {
 
       {/* Explanation */}
       {(queryType === 'Expert Advice' || queryType === '2nd Opinion') && (
-        <div className="mb-4">
-          <label className="form-label fw-bold">What exactly do you want to know?</label>
+        <div className="mb-4 conditions bg-info">
+         
           <textarea
-            className="form-control my-select bg-info"
+            className="bg-info w-100 p-3"
             rows="4"
             placeholder="Describe the opinion you are seeking..."
             value={explanation}

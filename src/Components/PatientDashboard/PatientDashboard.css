@@ -1,0 +1,32 @@
+.patient_sidebar{
+    background: #707070;
+    background:  #008066;
+    background:  #008080;
+    height: 100vh;
+}
+
+.list-group .list-group-item{
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #1a53ff;
+}
+
+.list-group .list-group-item:hover{
+background:  #00804d;
+}
+
+.list-group .list-group-item:active{
+    background:  #00804d;
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}

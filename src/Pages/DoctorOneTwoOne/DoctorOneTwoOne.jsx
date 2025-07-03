@@ -120,11 +120,11 @@ function DoctorOneTwoOne() {
     <div className="container-fluid conversation">
       <div className="row">
         <div className="col-12">
+
           <div className="upper-conversation">
-            <h1>{patient_id}</h1>
-            <p className="text-muted py-3">
-              Ask your health-related queries below
-            </p>
+          
+            <h4 className="text-center  py-3">
+             Interact with AI for your medical issue and reach to exclusive Doctors           </h4>
 
             <div>
               {conversation.map((entry, index) => (
@@ -132,12 +132,22 @@ function DoctorOneTwoOne() {
                   key={index}
                   className="mb-sm-3 mb-2 p-1 conversation-history"
                 >
-                  <p className="py-1">
+
+                  <div className="user p-1 d-flex ">
+                    <i class="bi bi-person-fill ms-1 pt-1 icon"></i>
+ <p className="py-1 ms-2">
                     <strong>You:</strong> {entry.user_prompt}
                   </p>
-                  <p className="py-1">
+                  </div>
+
+                  <div className="ai_doc p-1 my-sm-4 my-2 d-flex">
+                   <i class="bi bi-prescription2 ms-2 pt-1 icon"></i>
+<p className="py-1 ms-3">
                     <strong>Doctor:</strong> {entry.ai_prompt}
                   </p>
+                  </div>
+                 
+                  
                 </div>
               ))}
               <div ref={conversationEndRef} />
@@ -176,7 +186,7 @@ function DoctorOneTwoOne() {
               {error && <div className="alert alert-danger mt-2">{error}</div>}
 
               {rephrasedMessage && (
-                <div className="alert alert-info mt-4">
+                <div className="rephrased mt-4 p-3">
                   <strong>Rephrased Summary:</strong>
                   <br />
                   {rephrasedMessage}
@@ -192,6 +202,7 @@ function DoctorOneTwoOne() {
               )}
             </div>
           </div>
+          
         </div>
       </div>
     </div>

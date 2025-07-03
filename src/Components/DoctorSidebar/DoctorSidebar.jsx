@@ -4,11 +4,11 @@ import './DoctorSidebar.css';
 
 const DoctorSidebar = () => {
   return (
-    <div className="list-group ms-sm-5 ms-2">
+    <div className="list-group ms-sm-5 ms-1 doc_sidebar" >
       <NavLink
         to="/doctors_profile/my_profile"
         className={({ isActive }) =>
-          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+          `list-group-item list-group-item-action my-sm-3 my-1 p-1 ${
             isActive ? 'active-link' : ''
           }`
         }
@@ -19,7 +19,7 @@ const DoctorSidebar = () => {
       <NavLink
         to="/doctors_profile/my_queue"
         className={({ isActive }) =>
-          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+          `list-group-item list-group-item-action my-sm-3 my-1 p-1 ${
             isActive ? 'active-link' : ''
           }`
         }
@@ -30,7 +30,7 @@ const DoctorSidebar = () => {
       <NavLink
         to="/doctors_profile/my_cases"
         className={({ isActive }) =>
-          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+          `list-group-item list-group-item-action my-sm-3 my-1 p-1 ${
             isActive ? 'active-link' : ''
           }`
         }
@@ -41,7 +41,7 @@ const DoctorSidebar = () => {
       <NavLink
         to="/doctors_profile/my_duty"
         className={({ isActive }) =>
-          `list-group-item list-group-item-action my-sm-3 my-1 py-2 px-5 ${
+          `list-group-item list-group-item-action my-sm-3 my-1 p-1 ${
             isActive ? 'active-link' : ''
           }`
         }

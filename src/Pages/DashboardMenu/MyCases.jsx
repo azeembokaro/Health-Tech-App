@@ -23,14 +23,14 @@ const MyCases = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h3 className="text-primary text-center mb-4">My Digital Prescriptions</h3>
+    <div className="container mt-1">
+      <h3 className="text-primary text-center py-3">My Digital Prescriptions</h3>
 
       <div className="row">
         {prescriptions.map((p, index) => (
           <div className="col-md-4 mb-3" key={index}>
             <div
-              className={`card shadow p-3 text-center ${selected?.digitalPrescptionID === p.digitalPrescptionID ? 'border-primary border-2' : ''}`}
+              className={`pre_card text-center p-1 ${selected?.digitalPrescptionID === p.digitalPrescptionID ? 'border-primary border-2' : ''}`}
               style={{ cursor: "pointer" }}
               onClick={() => handleClick(p)}
             >

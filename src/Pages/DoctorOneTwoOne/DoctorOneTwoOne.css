@@ -1,22 +1,37 @@
 .conversation{
-min-height: 100vh;
+min-height: 130vh;
 max-width: 100%;
+background: #00CCFF;
 }
 
 .conversation .upper-conversation{
-height: 65vh;
+height: 75vh;
 overflow-y: auto;
 }
 
 .conversation .lower-conversation{
     /* position: fixed; */
-    height: 35vh;
+    height: 25vh;
     width: 100%;
+}
+
+.conversation h4{
+    color: #0033FF;
+}
+
+.contditions textarea{
+    border-radius: 20px;
 }
 
 .dialog{
     width: 70%;
     margin: auto;
+}
+
+.rephrased{
+    background: #0a403b;
+    color: white;
+    border-radius: 20px;
 }
 
 @media(max-width:571px){
@@ -42,3 +57,42 @@ overflow-y: auto;
     border-radius: 10px;
     border: 2px solid black;
 }
+
+.user{
+    width: 60%;
+    background: #0a403b;
+    color: white;
+    border-radius: 20px;
+}
+.ai_doc{
+    width: 75%;
+    margin-left: 15%;
+    background: #3b6634;
+    color: white;
+    border-radius: 25px;
+}
+
+
+/* icons.css */
+
+/* Base style for all icons */
+.icon {
+  display: inline-block;
+  font-size: 1.55rem; /* Default size */
+  vertical-align: middle;
+  transition: color 0.3s ease, transform 0.3s ease;
+ 
+  color: white;
+}
+
+/* Sizing modifiers */
+.icon-sm {
+  font-size: 1rem;
+}
+.icon-lg {
+  font-size: 1.75rem;
+}
+.icon-xl {
+  font-size: 2.25rem;
+}
+

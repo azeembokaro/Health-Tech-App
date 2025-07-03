@@ -1,13 +1,9 @@
 /* DashboardMenu.css */
 
-/* .container {
-  max-width: 960px;
-  margin: auto;
-  padding: 24px;
-  background: #f4f6f9;
-  border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-} */
+#page-content-wrapper{
+  width: 70%;
+  margin: unset;
+}
 
 h3 {
   color: #2e7d32;
@@ -29,7 +25,13 @@ background: linear-gradient(to right, #01518e 0%, #028aa4 100%);
   color: white;
 }
 
-
+.pre_card{
+  background: #004d4d;
+  color: white;
+  border-radius: 15px;
+  width: 70%;
+  margin: auto;
+}
 
 .card-header {
  
