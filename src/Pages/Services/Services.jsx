@@ -20,26 +20,24 @@ function Services() {
     <div>
       
 
-      <div class="service-banner align-items-center justify-content-center my-sm-3 my-2 py-sm-4 py-2">
-        <h3 className="text-center pt-3 pb-1">
-          Avail Our Plethora of Services
-        </h3>
-        <div class="pt-1 pb-3">
+      <div class="service-banner align-items-center justify-content-center my-sm-2 my-4">
+        
+        <div class="py-1">
           {patient_id ? (
-            <h3>Hello, Patient ID: {patient_id}</h3>
+            <h5 className="text-start text-info">Hello, Patient ID: {patient_id}</h5>
           ) : (
-            <h3>No patient logged in.</h3>
+            <h5 className="text-start text-info">No patient logged in.</h5>
           )}
         </div>
       </div>
 
       <div className="container services">
-        <div className="row mt-sm-5 mt-3 my-0">
+        <div className="row mt-sm-1 mt-3 my-0">
           <div className="col-sm-4 col-10 mb-sm-0 mb-3 offset-sm-0 offset-1">
             <div className="card pt-4 pb-2">
               <img src={DoctorCard} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h6 className=" text-center card-title ">Exclusive 1 to 1 Free Digital Consultation</h6>
+                <h5 className=" text-center card-title pb-2 ">Exclusive 1 to 1 Free Digital Consultation</h5>
                 <p>
                  Report your medical conditions, assisted by AI for Free Digital Consultatiom by our platform doctors in matters of secounds.
                 </p>
@@ -54,7 +52,7 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={MedicalRecord} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h6 className=" text-center card-title">Free Consultation </h6>
+                <h5 className=" text-center card-title pb-2">Free Consultation </h5>
                 <p>
                   Get in touch with Expert Consultant Doctors for Medical Ailments, 2nd Opinion or Expert Advice within 24-48 hours, ABSOLUTELY FREE.{" "}
                 </p>
@@ -69,7 +67,7 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={MedicalInfo} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h6 className=" text-center card-title">Health Dashboard</h6>
+                <h5 className=" text-center card-title pb-2">Health Dashboard</h5>
                 <p>
                   View, Trace and Track all your Digital Prescriptions, Medical Cases, Medical Reports, Doctors Notifications, Health Statistics etc
                 </p>
@@ -86,7 +84,7 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={ConsultExpert} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h6 className=" text-center card-title">Consult With Expert</h6>
+                <h5 className=" text-center card-title pb-2">Consult With Expert</h5>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                   Tempora nam possimus quis quibusdam vel tempore recusandae
@@ -104,7 +102,7 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={HealthcareService} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h6 className=" text-center card-title">Find Healthcare Service</h6>
+                <h5 className=" text-center card-title pb-2">Find Healthcare Service</h5>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
                   dolorem corrupti quasi ab voluptates sapiente numquam tempore,
@@ -121,7 +119,7 @@ function Services() {
             <div className="card pt-4 pb-2">
               <img src={HealthcareService} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h6 className=" text-center card-title">Find Healthcare Service</h6>
+                <h5 className=" text-center card-title pb-2">Find Healthcare Service</h5>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
                   dolorem corrupti quasi ab voluptates sapiente numquam tempore,
