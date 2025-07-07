@@ -14,7 +14,7 @@ function Header() {
       <nav className="navbar navbar-expand-sm navigation_wrap navbar-dark">
         <div className='logo'>
 <a className="navbar-brand ms-sm-4" href="#">
-            WeCare
+            <span className='logo-title'>We</span>Care
           </a>
         </div>
           
