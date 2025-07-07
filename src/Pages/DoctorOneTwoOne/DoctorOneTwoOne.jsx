@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./DoctorOneTwoOne.css";
 import { usePatient } from "../../PatientContext"; 
+import {useNavigate } from 'react-router-dom'
 
 function DoctorOneTwoOne() {
   const [query, setQuery] = useState("");
@@ -11,7 +12,7 @@ function DoctorOneTwoOne() {
   const [inputDisabled, setInputDisabled] = useState(false);
   const [rephrasedMessage, setRephrasedMessage] = useState(null);
   const conversationEndRef = useRef(null);
-
+  const navigate = useNavigate()
   const { patient_id } = usePatient(); // ✅ Get patient_id from context
 
   
@@ -109,6 +110,7 @@ function DoctorOneTwoOne() {
 
     const response = await axios.post("http://localhost:8080/api/submitQuery", requestBody);
     alert("Query submitted to In-House Doctor: " + response.data);
+    navigate('/pat_doc_chat')
   } catch (error) {
     console.error("Error submitting query:", error);
     alert("Failed to submit query to doctor.");
@@ -134,14 +136,14 @@ function DoctorOneTwoOne() {
                 >
 
                   <div className="user p-1 d-flex ">
-                    <i class="bi bi-person-fill ms-1 pt-1 icon"></i>
+                    <i className="bi bi-person-fill ms-1 pt-1 icon"></i>
  <p className="py-1 ms-2">
                     <strong>You:</strong> {entry.user_prompt}
                   </p>
                   </div>
 
                   <div className="ai_doc p-1 my-sm-4 my-2 d-flex">
-                   <i class="bi bi-prescription2 ms-2 pt-1 icon"></i>
+                   <i className="bi bi-prescription2 ms-2 pt-1 icon"></i>
 <p className="py-1 ms-3">
                     <strong>Doctor:</strong> {entry.ai_prompt}
                   </p>

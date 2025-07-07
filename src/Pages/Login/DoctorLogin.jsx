@@ -11,6 +11,7 @@ import {useDoctor } from '../../DoctorContext'
 function DoctorLogin() {
   const { setDoctorId } = useDoctor()
   const [doctor_id, setDoctorid] = useState("");
+  const[type,setType]= useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +24,9 @@ function DoctorLogin() {
         password,
       });
 
-      setDoctorId(response.data.doctorID)
+      setDoctorId(response.data.doctorID);
+      setType(response.data.typeDoc);
+      
 
       console.log("Response:", response.data);
       toast.success("Logged in successfully", {
@@ -60,9 +63,9 @@ function DoctorLogin() {
     <>
       <ToastContainer />
 
-      <div class="container mt-sm-5 mt-3">
-        <div class="row">
-          <div class="col-sm-6 col-8 offset-sm-3 offset-2">
+      <div className="container mt-sm-5 mt-3">
+        <div className="row">
+          <div className="col-sm-6 col-8 offset-sm-3 offset-2">
  <form onSubmit={handleSubmit}  className="login p-sm-5 p-3">
                 <h3 className="text-center">Doctor Login</h3>
 

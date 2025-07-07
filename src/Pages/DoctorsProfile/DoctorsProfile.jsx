@@ -6,6 +6,7 @@ import MyProfile from './MyProfile';
 import MyQueue from './MyWatingQueue';
 import MyDuty from './MyDuty';
 import MyCases from './CasesHandled';
+import DoctorChat from './DoctorChat'
 
 
 
@@ -27,6 +28,10 @@ const DoctorProfile = () => {
             
             <Route path="my_duty" element={<MyDuty />} />
             <Route path="my_cases" element={<MyCases />} />
+             <Route path="doc_chat" element={<DoctorChat />} />
+
+
+
           </Routes>
         
           

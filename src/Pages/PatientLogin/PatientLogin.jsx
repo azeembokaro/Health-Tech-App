@@ -33,9 +33,9 @@ function PatientLogin() {
   return (
 <>
 
- <div class="container mt-sm-5 mt-3">
-  <div class="row">
-    <div class="col-sm-6 col-8 offset-sm-3 offset-2">
+ <div className="container mt-sm-5 mt-3">
+  <div className="row">
+    <div className="col-sm-6 col-8 offset-sm-3 offset-2">
 <form onSubmit={handleSubmit} className="login p-sm-5 p-3">
       <h3 className="text-center">Patient Login</h3>
       <label for="" className="py-2">Enter Your Patient ID</label>

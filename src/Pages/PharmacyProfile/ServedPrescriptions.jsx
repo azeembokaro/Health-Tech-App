@@ -4,13 +4,13 @@ const ServedPrescriptions = () => {
 const  { pharmacyId } = usePharmacy()
 return(
     <>
-    <div class="container pharmacy_profile">
-        <div class="row">
-            <div class="col-10 offset-1">
-                <h3 className="text-center py-4 text-primary">
-                    The Pharmacy ID is: {pharmacyId}
-                </h3>
- <h4 class="text-center py-5">
+    <div className="container pharmacy_profile">
+        <div className="row">
+            <div className="col-10 offset-1">
+                <h6 className="text-start py-2 text-primary">
+                    Pharmacy ID: {pharmacyId}
+                </h6>
+ <h4 className="text-center py-5">
         Served Prescription
     </h4>
             </div>

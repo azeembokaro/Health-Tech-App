@@ -34,7 +34,7 @@ function Home() {
             
             <ul className="hero-list">
               <li className="my-sm-3 my-2 p-3 ms-sm-0">
-                <i class="bi bi-check-lg icon-bg"></i>
+                <i className="bi bi-check-lg icon-bg"></i>
                 <span>
                   The only Health-tech platform which gives unlimited & absolutely FREE ONLINE
                   Digital Consultation, Medical Advice and Opinions. Complete
@@ -72,8 +72,8 @@ function Home() {
            
         </div>
 
-        <div class="row text-center">
-          <div class="col-12">
+        <div className="row text-center">
+          <div className="col-12">
 <div className="sign-up py-sm-5 py-3">
               <button
                 className="hero-button"

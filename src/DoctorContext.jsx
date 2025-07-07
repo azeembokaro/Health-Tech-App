@@ -10,9 +10,10 @@ export const useDoctor = () => useContext(DoctorContext);
 // Provider component
 export const DoctorProvider = ({ children }) => {
   const [doctorID, setDoctorId] = useState("");
+  const  [type,setType]=useState("");
 
   return (
-    <DoctorContext.Provider value={{ doctorID, setDoctorId }}>
+    <DoctorContext.Provider value={{ doctorID, setDoctorId,type,setType }}>
       {children}
     </DoctorContext.Provider>
   );

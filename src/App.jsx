@@ -19,6 +19,8 @@ import LoginRoutes from "./routes/LoginRoutes";
 
 import DoctorOneTwoOne from "./Pages/DoctorOneTwoOne/DoctorOneTwoOne";
 
+import DoctorPatientChat from "./Pages/DoctorOneTwoOne/Patient_doctor"
+
 import DoctorsProfile from "./Pages/DoctorsProfile/DoctorsProfile";
 import PharmacyProfile from "./Pages/PharmacyProfile/PharmacyProfile";
 import LabProfile from  "./Pages/LabProfile/LabProfile"
@@ -101,6 +103,15 @@ function App() {
                     path="/doctoronetwoone"
                     element={<DoctorOneTwoOne />}
                   />
+
+                   <Route
+                    path="/pat_doc_chat"
+                    element={<DoctorPatientChat />}
+                  />
+
+                  
+
+
                   <Route path="/ask_expert" element={<AskExpert />} />
 
                   <Route path="/persistant_queue" element={<PersistantQueue />} />

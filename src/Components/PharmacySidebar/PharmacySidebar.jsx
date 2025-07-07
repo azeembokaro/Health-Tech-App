@@ -24,7 +24,7 @@ const PharmacySidebar = () => {
           }`
         }
       >
-      Served The Prescription
+      Serve The Prescription
       </NavLink>
 
      <NavLink

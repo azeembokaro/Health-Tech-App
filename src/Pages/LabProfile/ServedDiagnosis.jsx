@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useLab } from "../../LabContext";
-
+import './LabProfile.css'
 const ServedDiagnosis = () => {
   const [pid, setPid] = useState('');
   const [activePrescriptionId, setActivePrescriptionId] = useState('');
@@ -77,11 +77,15 @@ const ServedDiagnosis = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="text-center mb-4">Serve the Diagnosis Lab</h2>
-      <h3 className="text-center text-info py-3">
+    <div className="container py-5 lab_cont">
+      <h5 className="text-center mb-4 mt-2 text-primary">
+        View And Serve The Diagnostics Tests As Per Digital Prescriptions
+      </h5>
+      <h5 className="text-start text-info py-1">
         Lab ID: {diagnosticsId}
-      </h3>
+      </h5>
+      
+      
 
       <form onSubmit={handleSubmit}>
         <div className="d-flex align-items-center justify-content-between gap-3 mb-4">

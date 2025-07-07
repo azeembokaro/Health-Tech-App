@@ -20,11 +20,11 @@ function Services() {
     <div>
       
 
-      <div class="service-banner align-items-center justify-content-center my-sm-3 my-2 py-sm-4 py-2">
+      <div className="service-banner align-items-center justify-content-center my-sm-3 my-2 py-sm-4 py-2">
         <h3 className="text-center pt-3 pb-1">
           Avail Our Plethora of Services
         </h3>
-        <div class="pt-1 pb-3">
+        <div className="pt-1 pb-3">
           {patient_id ? (
             <h3>Hello, Patient ID: {patient_id}</h3>
           ) : (

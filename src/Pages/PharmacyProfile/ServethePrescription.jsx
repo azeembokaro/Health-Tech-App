@@ -87,15 +87,17 @@ const ServethePrescription = () => {
     <div className="container pharmacy_profile">
       <div className="row">
         <div className="col-10 offset-1">
-          <h2 className="text-center py-4">Serve The Prescription</h2>
-          <h3 className="text-center py-4 text-primary">
-                    The Pharmacy ID is: {pharmacyId}
-                </h3>
+          <h4 className="text-center py-2 text-primary">
+            View And Provide Medicines As Per Digital Prescription
+          </h4>
+          <h6 className="text-start py-2 text-primary">
+                    Pharmacy ID: {pharmacyId}
+                </h6>
 
           <form onSubmit={handleSubmit}>
             <div className="d-flex align-items-center justify-content-between gap-3 my-4">
               <label htmlFor="pid" className="me-2 fw-semibold">
-                Enter Prescription ID
+                Enter Patient's Prescription ID
               </label>
               <input
                 type="text"

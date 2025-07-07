@@ -34,7 +34,7 @@ function BuisnessLogin() {
   return (
     <div className="container my-5 signupInfo">
       <div className="row">
-        <div className="col-sm-8 offset-sm-2 my-sm-5 my-3 col-10 offset-1 outerForm">
+        <div className="col-sm-6 offset-sm-3 my-sm-5 my-3 col-10 offset-1 outerForm">
           <form onSubmit={handleSubmit} className="form"> {/* ✅ Removed styles.form */}
             <h2 className="text-center">
               Business Login
@@ -57,7 +57,7 @@ function BuisnessLogin() {
               <option value="DiagnosticLab">DiagnosticLab</option>
             </select>
 
-            <button type="submit" className="btn btn-primary mt-3">
+            <button type="submit" className="btn btn-primary mt-3 w-25 mx-auto">
               Submit
             </button>
           </form>

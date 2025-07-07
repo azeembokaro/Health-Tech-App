@@ -1,11 +1,11 @@
 #page-content-wrapper{
-    width: 70%;
+    width: 100%;
     margin: auto;
 }
 
 
 .doctors-profile{
-    width: 90%!important;
+    width: 70%!important;
     margin: auto!important;
     border-radius: 30px;
     /* border: 1px solid blue; */
@@ -19,8 +19,12 @@ ul {
 }
 
 .profile_box{
-    background: #004de6;
+    background: #2f5b83;
     color: #ffffff;
+}
+
+.doc_prof_key{
+    font-weight: 600;
 }
 
 .profile_box h2{
@@ -46,4 +50,51 @@ ul {
     color: white;
     border: transparent;
     
+}
+
+.card-header{
+    font-weight: 300;
+}
+
+/* --------------------------------- */
+.chat-container{
+    /* background: #1bd4f5; */
+    max-width: 100%;
+}
+.doc_textmsg{
+   width: 70%;
+   margin: auto;
+   border-radius: 20px;
+}
+
+.doc_send{
+    max-width: 70%;
+    min-width: 30%;
+    background: #0a468f;
+    border-radius: 30px;
+}
+
+.doc_msg{
+    width: 250px;
+    border-radius: 40px;
+   
+}
+
+.doc-data label{
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+#doc-con-card p{
+    color: darkblue;
+}
+
+#doc-con-card ul li{
+    color: darkblue;
+}
+
+#doc-con-card strong{
+    color: rgb(18, 18, 238);
+    font-weight: 600;
 }

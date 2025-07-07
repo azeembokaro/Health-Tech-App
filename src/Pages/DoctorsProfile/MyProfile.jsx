@@ -1,47 +1,85 @@
-import React from 'react'
-import './DoctorsProfile.css'
-
-
-import { useDoctor } from '../../DoctorContext'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './DoctorsProfile.css';
+import { useDoctor } from '../../DoctorContext';
 
 const MyProfile = () => {
+  const { doctorID } = useDoctor();
+  const [doctorProfile, setDoctorProfile] = useState(null);
+  const [error, setError] = useState("");
 
-  const { doctorID } =  useDoctor()
+  useEffect(() => {
+    const fetchDoctorProfile = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/doctorapi/myprofile", {
+          params: { id: doctorID },
+        });
+        setDoctorProfile(response.data);
+      } catch (err) {
+        console.error("Error fetching doctor profile:", err);
+        setError("Failed to fetch profile. Please try again later.");
+      }
+    };
+
+    if (doctorID) fetchDoctorProfile();
+  }, [doctorID]);
+
   return (
-   <>
-   <div class="container my-sm-5 my-3 ">
-    <div class="row doctors-profile profile_box">
-      <h2 class="py-sm-4 py-2">
-        Doctor's Profile
-      </h2>
-      <h3 className='text-center text-dark py-3'> The Doctor's Profile Is :{doctorID}</h3>
-      <div class="col-6">
+    <div className="container my-sm-5 my-3">
+      <div className="row doctors-profile profile_box">
+        <h2 className="py-3">Doctor's Profile</h2>
+        <h5 className="text-center text-light pt-1 pb-4">Doctor ID: {doctorID}</h5>
 
-        <ul>
-          <li className=' py-sm-3 py-1'>Name</li>
-          <li className=' py-sm-3 py-1'>Qualification</li>
-          <li className=' py-sm-3 py-1'>Date of Joining</li>
-          <li className=' py-sm-3 py-1'>Expiry</li>
-          <li className=' py-sm-3 py-1'>Practioner's ID</li>
-        </ul>
-       
-       
-      </div>
-      <div class="col-6">
-       
-        <ul>
-          <li className=' py-sm-3 py-1'>Dr. Saleha</li>
-          <li className=' py-sm-3 py-1'>M.D.</li>
-          <li className=' py-sm-3 py-1'>25/07/25</li>
-          <li className=' py-sm-3 py-1'>28/02/2028</li>
-          <li className=' py-sm-3 py-1'>ASDF678</li>
-        </ul>
-       
+        {error && (
+          <div className="alert alert-danger text-center">{error}</div>
+        )}
+
+        {!doctorProfile && !error && (
+          <p className="text-center">Loading doctor profile...</p>
+        )}
+
+        {doctorProfile && (
+          <>
+
+
+<div className="col-12 doc-data">
+  {[
+    { label: "Name", value: doctorProfile.name },
+    { label: "Type", value: doctorProfile.typeDoc },
+    { label: "Qualification", value: doctorProfile.qualification },
+    { label: "Status", value: doctorProfile.status },
+    { label: "Practioner ID", value: doctorProfile.practionerId },
+    {
+      label: "Last Login Time",
+      value: doctorProfile.lastLoginTime
+        ? new Date(doctorProfile.lastLoginTime).toLocaleString()
+        : "N/A",
+    },
+    {
+      label: "Available Start Time",
+      value: doctorProfile.availableStartTime
+        ? new Date(doctorProfile.availableStartTime).toLocaleString()
+        : "N/A",
+    },
+  ].map((item, index) => (
+    <div
+      className="d-flex justify-content-between align-items-center border-bottom py-2"
+      style={{ borderColor: "#001a0d" }}
+      key={index}
+    >
+      <div className="col-sm-6 fw-medium text-dark">{item.label}</div>
+      <div className="col-sm-6 ms-sm-2">{item.value}</div>
+    </div>
+  ))}
+</div>
+
+           
+
+          </>
+        )}
       </div>
     </div>
-   </div>
-   </>
-  )
-}
+  );
+};
 
-export default MyProfile
+export default MyProfile;

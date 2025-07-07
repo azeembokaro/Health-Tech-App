@@ -1,9 +1,17 @@
 const ServetheDiagnosis = () => {
     return(
         <>
-        <h1 className="text-center py-3">
+
+        <div className="container lab_cont">
+            <div className="row">
+                <div className="col-12">
+ <h4 className="text-center py-3 text-primary">
             Serve The Diagnosis
-        </h1>
+        </h4>
+                </div>
+            </div>
+        </div>
+       
         
         </>
     )

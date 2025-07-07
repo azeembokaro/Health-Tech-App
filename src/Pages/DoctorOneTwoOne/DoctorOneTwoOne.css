@@ -96,3 +96,29 @@ overflow-y: auto;
   font-size: 2.25rem;
 }
 
+/* ----------------------------------------------Doc 1 2 1 CSS------------------------------------------------------------ */
+
+.pat_doc_cont{
+    background: #0000ff;
+    min-height: 100vh;
+}
+
+.pat_doc_cont textarea{
+    width: 50%;
+    margin: auto;
+}
+
+.pat_doc_cont button{
+    width: 250px;
+    border-radius: 15px;
+}
+
+.msg-content{
+    width: 70%;
+    background: #ff0000;
+    border-radius: 20px;
+
+}
+
+/* ----------------------------------------- */
+

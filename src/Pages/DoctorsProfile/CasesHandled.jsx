@@ -1,9 +1,7 @@
-// src/Pages/Doctor/CasesHandled.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDoctor } from "../../DoctorContext";
-
-
+import './DoctorsProfile.css'
 const CasesHandled = () => {
   const { doctorID } = useDoctor();
   const [prescriptions, setPrescriptions] = useState([]);
@@ -37,7 +35,7 @@ const CasesHandled = () => {
   const renderList = (items, fields) => {
     if (!items || items.length === 0) return <em>None</em>;
     return (
-      <ul>
+      <ul style={{ margin: 0, paddingLeft: "1.2rem" }}>
         {items.map((item, i) => (
           <li key={i}>
             {fields.map(
@@ -56,42 +54,53 @@ const CasesHandled = () => {
 
   return (
     <div className="docpresc-container">
-     
-
       {loading && <p>Loading prescriptions...</p>}
       {error && <div className="alert alert-danger">{error}</div>}
 
       {!loading && prescriptions.length === 0 && <p>No prescriptions found.</p>}
 
       {prescriptions.map((presc, idx) => (
-        <div className="docpresc-card" key={idx}>
-          <div className="docpresc-header">
-            <strong>Prescription ID:</strong> {presc.digitalPrescptionID}
-          </div>
-          <div className="docpresc-body">
-            <p>
-              <strong>Patient ID:</strong> {presc.patientId}
-            </p>
-            <p>
-              <strong>Patient Log:</strong> {presc.patientLog}
-            </p>
-
-            <h6>Symptoms:</h6>
-            {renderList(presc.sym, ["conditionName", "from", "to", "addtionalNote"])}
-
-            <h6>Diagnostic Tests:</h6>
-            {renderList(presc.tests, ["type", "subtype", "methodOrOrgan", "instructions", "comment"])}
-
-            <h6>Doctor Observations:</h6>
-            {renderList(presc.observation, ["name", "severity"])}
-
-            <h6>Prescribed Medicines:</h6>
-            {renderList(presc.prescripedMedicine, ["name", "type", "fromDate", "endDate", "frequency", "comments"])}
-
-            <h6>Treatment Plan:</h6>
-            {renderList(presc.plan, ["plan", "duration", "note"])}
-          </div>
-        </div>
+        <table className="table table-bordered my-4" key={idx}>
+          <thead className="table-light">
+            <tr>
+              <th colSpan={2}>Prescription Details</th>
+            </tr>
+          </thead>
+          <tbody className="table-light">
+            <tr>
+              <th>Prescription ID</th>
+              <td>{presc.digitalPrescptionID}</td>
+            </tr>
+            <tr>
+              <th>Patient ID</th>
+              <td>{presc.patientId}</td>
+            </tr>
+            <tr>
+              <th>Patient Log</th>
+              <td>{presc.patientLog}</td>
+            </tr>
+            <tr>
+              <th>Symptoms</th>
+              <td>{renderList(presc.sym, ["conditionName", "from", "to", "addtionalNote"])}</td>
+            </tr>
+            <tr>
+              <th>Diagnostic Tests</th>
+              <td>{renderList(presc.tests, ["type", "subtype", "methodOrOrgan", "instructions", "comment"])}</td>
+            </tr>
+            <tr>
+              <th>Doctor Observations</th>
+              <td>{renderList(presc.observation, ["name", "severity"])}</td>
+            </tr>
+            <tr>
+              <th>Prescribed Medicines</th>
+              <td>{renderList(presc.prescripedMedicine, ["name", "type", "fromDate", "endDate", "frequency", "comments"])}</td>
+            </tr>
+            <tr>
+              <th>Treatment Plan</th>
+              <td>{renderList(presc.plan, ["plan", "duration", "note"])}</td>
+            </tr>
+          </tbody>
+        </table>
       ))}
     </div>
   );
